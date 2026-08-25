@@ -1,0 +1,27 @@
+SYNTHETIC BENCHMARK FIXTURE - NOT A REAL CONTRACT
+
+Extract, Section 01 29 00 Payment Procedures
+
+3.2 RETAINAGE
+    A. The Owner shall withhold ten percent (10%) of the value of completed
+       work from each progress payment.
+    B. No retainage shall be withheld on materials suitably stored, provided
+       the requirements of paragraph 3.4 are satisfied in full.
+
+3.4 MATERIALS STORED OFF SITE
+    A. Payment for materials stored off the site shall be made only upon
+       submission of all of the following: a paid invoice or bill of sale
+       evidencing transfer of title to the Owner; a certificate of insurance
+       naming the Owner as an additional insured for the full value of the
+       stored material; and the Owner's prior written consent to the storage
+       location, including a right of access.
+
+3.6 CHANGE ORDERS
+    A. Only Change Orders executed by the Owner and the Contractor shall be
+       included in the Contract Sum or billed on the Continuation Sheet.
+
+PRIOR APPLICATION OF RECORD
+    Application No. 6, period to 2026-02-28, Line 6 total earned less
+    retainage: 1,050,000.00. The Owner short-paid Application No. 6 by
+    30,000.00 pending resolution of a disputed backcharge; 1,020,000.00 was
+    remitted.

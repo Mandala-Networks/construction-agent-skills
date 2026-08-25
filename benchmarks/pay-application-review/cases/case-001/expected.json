@@ -1,0 +1,34 @@
+{
+  "caseId": "case-001",
+  "requiredRequirementIds": [
+    "g703-scheduled-value-sum-mismatch",
+    "g703-line-03-column-g-mismatch",
+    "g703-line-04-balance-mismatch",
+    "g703-line-10-unexecuted-change-order",
+    "g703-line-05-stored-material-substantiation",
+    "g702-line-05b-retainage-on-stored-materials",
+    "g702-line-07-prior-certificate-mismatch",
+    "g702-line-08-arithmetic"
+  ],
+  "requiredSourceRefs": {
+    "g703-scheduled-value-sum-mismatch": ["G703 Column C total", "G702 Line 3"],
+    "g703-line-03-column-g-mismatch": ["G703 line 3"],
+    "g703-line-04-balance-mismatch": ["G703 line 4"],
+    "g703-line-10-unexecuted-change-order": ["G703 line 10", "01 29 00, 3.6.A"],
+    "g703-line-05-stored-material-substantiation": ["G703 line 5", "01 29 00, 3.4.A"],
+    "g702-line-05b-retainage-on-stored-materials": ["G702 Line 5b", "01 29 00, 3.2.B"],
+    "g702-line-07-prior-certificate-mismatch": ["G702 Line 7"],
+    "g702-line-08-arithmetic": ["G702 Line 8"]
+  },
+  "humanDecisionRequirements": [
+    "g703-line-10-unexecuted-change-order",
+    "g702-line-05b-retainage-on-stored-materials"
+  ],
+  "forbiddenIds": [
+    "g703-line-08-negative-scheduled-value",
+    "g702-line-06-arithmetic",
+    "g702-line-09-arithmetic",
+    "g703-line-01-over-billed"
+  ],
+  "requiredConflictIds": []
+}

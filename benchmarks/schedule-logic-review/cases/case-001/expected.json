@@ -1,0 +1,33 @@
+{
+  "caseId": "case-001",
+  "requiredRequirementIds": [
+    "dcma-01-open-end-A1300",
+    "dcma-02-lead-A1210-A1220",
+    "dcma-03-lag-A1150-A1160",
+    "dcma-05-hard-constraint-A1400",
+    "dcma-06-high-float-A1500",
+    "dcma-07-negative-float-A1600",
+    "dcma-08-high-duration-A1700",
+    "dcma-09-invalid-date-A1800"
+  ],
+  "requiredSourceRefs": {
+    "dcma-01-open-end-A1300": ["A1300"],
+    "dcma-02-lead-A1210-A1220": ["A1210 -> A1220"],
+    "dcma-03-lag-A1150-A1160": ["A1150 -> A1160"],
+    "dcma-05-hard-constraint-A1400": ["A1400"],
+    "dcma-06-high-float-A1500": ["A1500"],
+    "dcma-07-negative-float-A1600": ["A1600"],
+    "dcma-08-high-duration-A1700": ["A1700"],
+    "dcma-09-invalid-date-A1800": ["A1800"]
+  },
+  "humanDecisionRequirements": [
+    "dcma-05-hard-constraint-A1400",
+    "dcma-07-negative-float-A1600"
+  ],
+  "forbiddenIds": [
+    "dcma-01-open-end-A1000",
+    "dcma-01-open-end-A1900",
+    "dcma-10-no-resources"
+  ],
+  "requiredConflictIds": []
+}

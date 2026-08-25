@@ -1,0 +1,32 @@
+{
+  "name": "construction-skills",
+  "displayName": "Construction Skills",
+  "version": "0.2.0",
+  "description": "Benchmark-tested construction workflow skills, and Rob, a construction operations agent, for Claude Code, Codex, and Grok Build",
+  "author": {
+    "name": "Mandala Networks",
+    "url": "https://github.com/Mandala-Networks"
+  },
+  "homepage": "https://github.com/Mandala-Networks/construction-skills",
+  "repository": "https://github.com/Mandala-Networks/construction-skills",
+  "keywords": [
+    "construction",
+    "aec",
+    "preconstruction",
+    "scheduling",
+    "estimating",
+    "submittals",
+    "field-operations"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Construction Skills",
+    "shortDescription": "Sourced, benchmark-tested construction document and schedule workflows.",
+    "longDescription": "Staple construction workflows covering bids, submittals, RFIs, drawing revisions, schedule logic, pay applications, takeoff audits, job hazard analysis, and schedule optimization. Every skill cites its source location, separates missing information from a negative finding, and stops at contractual, safety, cost, and schedule decisions. Ships Rob, a construction operations agent that routes work to the right skill.",
+    "developerName": "Mandala Networks",
+    "category": "Productivity",
+    "capabilities": ["Skills"],
+    "websiteURL": "https://github.com/Mandala-Networks/construction-skills",
+    "defaultPrompt": ["Ask Rob which construction workflow fits the documents I have."]
+  }
+}

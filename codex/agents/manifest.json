@@ -1,0 +1,17 @@
+{
+  "agents": [
+    {
+      "agentName": "rob",
+      "description": "Construction project delivery agent. Use when the work involves bid packages, specifications, drawings, submittals, RFIs, subcontractor proposals, CPM schedules, pay applications, quantity takeoffs, or site hazard analysis. Rob reads the documents, routes to the matching construction skill, and returns sourced findings with the decisions a human still owns. Not for general software work, and not for signing, submitting, pricing, or interpreting a contract.",
+      "generatedFile": "rob.toml",
+      "generatedHash": "sha256:b7ecf5b7e53e8222076dd913788105da66ac655459ce94223c08a5823439387b",
+      "sourceHash": "sha256:0648ce04ed9058d56d484cb7a291a7a919815405d343a733881a8ca4320790eb",
+      "sourceName": "rob",
+      "sourcePath": "agents/rob.md",
+      "sourceVersion": "0.2.0"
+    }
+  ],
+  "generatorSchemaVersion": "1",
+  "plugin": "construction-skills",
+  "schemaVersion": "1"
+}

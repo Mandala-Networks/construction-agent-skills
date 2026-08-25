@@ -1,9 +1,9 @@
 {
-  "lockfileVersion": 2,
+  "lockfileVersion": 1,
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "code",
+      "name": "@mandala-networks/construction-agent-skills",
       "devDependencies": {
         "@biomejs/biome": "latest",
         "@types/bun": "latest",

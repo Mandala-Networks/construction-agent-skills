@@ -1,0 +1,20 @@
+{
+  "name": "mandala-networks",
+  "interface": {
+    "displayName": "Mandala Networks"
+  },
+  "plugins": [
+    {
+      "name": "construction-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

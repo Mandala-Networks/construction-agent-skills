@@ -1,0 +1,26 @@
+SYNTHETIC BENCHMARK FIXTURE - NOT A REAL PROJECT
+
+CONTINUATION SHEET - Application No. 7, period to 2026-03-31
+
+ A   B                              C            D          E         F          G          H
+ No  Description of work            Sched value  Prev       This      Stored     Total      Balance
+                                                 completed  period    materials  to date    to finish
+
+  1  Mobilization                    120,000.00  120,000.00      0.00      0.00  120,000.00       0.00
+  2  General conditions              180,000.00   90,000.00 15,000.00      0.00  105,000.00  75,000.00
+  3  Sitework                        340,000.00  272,000.00 34,000.00      0.00  316,000.00  24,000.00
+  4  Concrete                        520,000.00  260,000.00104,000.00      0.00  364,000.00 150,000.00
+  5  Structural steel                610,000.00  180,000.00 60,000.00 95,000.00  335,000.00 275,000.00
+  6  Roofing                         300,000.00        0.00      0.00      0.00        0.00 300,000.00
+  7  CO-001 Added entry canopy        85,000.00        0.00 20,000.00      0.00   20,000.00  65,000.00
+  8  CO-002 Deleted exterior signage  -15,000.00       0.00      0.00      0.00        0.00 -15,000.00
+  9  Finishes                        330,000.00        0.00      0.00      0.00        0.00 330,000.00
+ 10  PCO-004 Revised canopy glazing   42,000.00        0.00 10,000.00      0.00   10,000.00  32,000.00
+
+     TOTALS                        2,512,000.00  922,000.00243,000.00 95,000.00 1,270,000.00
+
+STORED MATERIALS BACKUP SUBMITTED WITH THIS APPLICATION
+  Line 5, structural steel, 95,000.00 - stored at fabricator's yard, off site.
+  Attached: photographs of the stored material, fabricator's packing list.
+  Not attached: invoice or bill of sale, certificate of insurance,
+  owner's written consent to off-site storage.
