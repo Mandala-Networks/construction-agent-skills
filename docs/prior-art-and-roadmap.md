@@ -17,6 +17,12 @@ borrowing from, and they are not what this repository is trying to be.
 - [AlpacaLabsLLC/skills-for-architects](https://github.com/AlpacaLabsLLC/skills-for-architects)
   — a local-first framework for firms to build and govern their own AEC workflows, with bundled
   skills as reference implementations.
+- **Contractor OS** (Tim Fairley, [@ConstructIQ](https://www.youtube.com/@ConstructIQ)) — ~95
+  skills sold at $97/month with coaching. Not open source. The largest commercial library, and
+  the most useful one to study: its author publishes the architecture on YouTube even though the
+  files are paid. See [the reconstructed inventory](contractor-os-inventory.md), which maps
+  roughly two thirds of it from public video, and note the four architectural ideas worth
+  taking.
 
 Coverage is cheap and correctness is not. A 200-skill catalog also costs real context budget on
 every host, and on Codex that budget is shared across every installed plugin. This library
@@ -59,16 +65,40 @@ numbers are quoted on a real project.
 
 ## Roadmap
 
-Candidates, in rough order of how often a team hits them.
+Reordered after the Contractor OS analysis. The top item is now a gap we did not know we had.
 
-**Next up**
+**Highest priority — the missing primitive**
 
+- `project-context-index` — convert a project's documents into small markdown mirrors under a
+  context folder, with a manifest naming where each source lives and which sources are **live**
+  rather than mirrored. Every other skill in this library currently assumes someone has already
+  made the documents readable. Nothing does that job, and without it each skill re-reads whole
+  PDF sets. This is the load-bearing dependency under the rest of the roadmap.
+
+  Two things make it a real skill rather than plumbing, and both are benchmarkable: a mirror
+  that goes stale is worse than no mirror, so the skill must refuse to mirror live registers
+  (variations, RFIs, correspondence) and must record mirror provenance and age; and coverage
+  must be reported, since a document silently missing from the index is invisible to every
+  downstream skill.
+
+- `drawing-set-index` — split a drawing set, extract vector text where present, and emit a
+  per-sheet summary plus an element index. The benchmark trap writes itself: a raster-only sheet
+  must come back as `unreadable`, never as an empty summary.
+
+**Next**
+
+- Extend `bid-requirements-register` with the **product versus process** split — what we build
+  against how we are required to deliver. It is the distinction that turns a register into a
+  pre-submission checklist, and we do not currently make it.
+- `contract-obligations-register` — a contract as dated, owned, recurring obligations, separated
+  into setup, recurring, event-driven, and closeout. Strong benchmark candidate: notice periods
+  and their triggers are exactly the specifics a model invents.
 - `change-order-review` — pricing structure, markup stacking against the contract, entitlement
-  versus quantum kept separate, time impact stated or absent.
-- `daily-report-normalizer` — manpower, equipment, weather, delays, and visitors into a
+  separated from quantum, time impact stated or absent.
+- `daily-report-normalizer` — manpower, equipment, weather, delays and visitors into a
   consistent record; the substrate for a delay claim, so unrecorded is never zero.
-- `punchlist-normalizer` — deduplicate across walkthroughs, route by responsible trade, keep
-  open items distinct from disputed items.
+- `punchlist-normalizer` — deduplicate across walkthroughs, route by trade, keep open items
+  distinct from disputed items.
 
 **Fixtures needed before the existing specifications become benchmark-ready**
 
@@ -86,3 +116,10 @@ Candidates, in rough order of how often a team hits them.
 
 Anything that submits, prices, certifies, approves, or interprets a contract. The library
 prepares those decisions and hands them to a named person. That boundary is the product.
+
+**Deliberately not copied**
+
+Template-carrying skills — a skill that bundles a company's own terms, assembly library, or ITP
+templates and emits their format. It is a good pattern and it is the core of Contractor OS's
+value, but those templates are customer-specific by nature. If we adopt it, the templates come
+from the customer, not from us, and never from another vendor's library.
