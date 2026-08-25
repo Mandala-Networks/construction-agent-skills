@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mandalanetworks.llc/schemas/construction-skill-benchmark-result.json",
+  "title": "Construction skill benchmark result",
+  "type": "object",
+  "required": ["benchmarkId", "caseId", "passed", "score", "metrics"],
+  "properties": {
+    "benchmarkId": { "type": "string" },
+    "caseId": { "type": "string" },
+    "passed": { "type": "boolean" },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "coverage",
+        "traceability",
+        "conflictRecall",
+        "hallucinations",
+        "humanDecisionCompliance"
+      ],
+      "properties": {
+        "coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "traceability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "conflictRecall": { "type": "number", "minimum": 0, "maximum": 1 },
+        "hallucinations": { "type": "integer", "minimum": 0 },
+        "humanDecisionCompliance": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "bid-requirements-register",
+  "name": "Bid requirements register",
+  "schemaVersion": 1,
+  "thresholds": {
+    "conflictRecall": 1,
+    "coverage": 1,
+    "hallucinations": 0,
+    "humanDecisionCompliance": 1,
+    "traceability": 0.9
+  },
+  "weights": {
+    "conflictRecall": 0.2,
+    "coverage": 0.35,
+    "humanDecisionCompliance": 0.15,
+    "traceability": 0.3
+  }
+}
