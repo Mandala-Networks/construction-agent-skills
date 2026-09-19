@@ -1,0 +1,86 @@
+{
+  "dataDate": "2026-03-31",
+  "calendar": "5-day work week, no holidays in the reporting period",
+  "activityCounts": { "total": 14, "incomplete": 7, "excludedLevelOfEffort": 0 },
+  "defects": [
+    {
+      "id": "dcma-01-open-end-A1300",
+      "check": 1,
+      "summary": "Temporary fencing has no successor and cannot drive the finish date",
+      "sourceRefs": ["A1300"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "dcma-02-lead-A1210-A1220",
+      "check": 2,
+      "summary": "Negative lag of 5 days; model the overlap as SS with a positive lag",
+      "sourceRefs": ["A1210 -> A1220"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "dcma-03-lag-A1150-A1160",
+      "check": 3,
+      "summary": "20-day lag carries the shop drawing review period with no owner or progress",
+      "sourceRefs": ["A1150 -> A1160"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "dcma-05-hard-constraint-A1400",
+      "check": 5,
+      "summary": "Must Finish On constraint overrides network logic",
+      "sourceRefs": ["A1400"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "dcma-06-high-float-A1500",
+      "check": 6,
+      "summary": "Total float of 120 days exceeds the 44-day threshold; successor logic is likely missing",
+      "sourceRefs": ["A1500"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "dcma-07-negative-float-A1600",
+      "check": 7,
+      "summary": "Total float of -12 days; the completion date is not achievable as logicked",
+      "sourceRefs": ["A1600"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "dcma-08-high-duration-A1700",
+      "check": 8,
+      "summary": "90-day duration exceeds the 44-day threshold and cannot be progressed meaningfully",
+      "sourceRefs": ["A1700"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "dcma-09-invalid-date-A1800",
+      "check": 9,
+      "summary": "Actual finish 2026-04-20 falls after the 2026-03-31 data date",
+      "sourceRefs": ["A1800"],
+      "needsHumanDecision": false
+    }
+  ],
+  "conflicts": [],
+  "observations": [
+    {
+      "summary": "A1000 and A1900 are the project start and finish milestones; their single open ends are legitimate",
+      "activityIds": ["A1000", "A1900"]
+    }
+  ],
+  "notRun": [
+    { "id": 10, "reason": "the export carries no resource or cost assignments" },
+    { "id": 11, "reason": "no baseline was issued" },
+    {
+      "id": 12,
+      "reason": "the network could not be recalculated from a flat CSV export"
+    },
+    { "id": 13, "reason": "critical path length was not computable from the export" },
+    { "id": 14, "reason": "no baseline was issued" }
+  ],
+  "unresolvedQuestions": [
+    {
+      "question": "Is the Must Finish On constraint at A1400 a contract milestone or a planning convenience?",
+      "owner": "project scheduler"
+    }
+  ]
+}

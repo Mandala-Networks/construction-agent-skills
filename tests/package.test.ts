@@ -1,7 +1,15 @@
 import { describe, expect, test } from "bun:test";
-import { mkdir, mkdtemp, rm, symlink, writeFile } from "node:fs/promises";
+import {
+  copyFile,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  symlink,
+  writeFile,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import {
   checkMetadata,
   containedPath,
@@ -73,4 +81,41 @@ describe("portable package boundary", () => {
   test("the repository passes its package contract", async () => {
     expect(await validatePackage(join(import.meta.dir, ".."))).toEqual([]);
   });
+});
+
+test("release bump keeps package and platform versions synchronized", async () => {
+  const temp = await mkdtemp(join(tmpdir(), "construction-bump-"));
+  const root = join(import.meta.dir, "..");
+  const manifests = [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    ".grok-plugin/plugin.json",
+    ".claude-plugin/marketplace.json",
+    ".grok-plugin/marketplace.json",
+    ".agents/plugins/marketplace.json",
+  ];
+  try {
+    for (const path of [...manifests, "package.json", "scripts/check-plugin.ts"]) {
+      await mkdir(dirname(join(temp, path)), { recursive: true });
+      await copyFile(join(root, path), join(temp, path));
+    }
+    const before = JSON.parse(await readFile(join(temp, "package.json"), "utf8"));
+    const result = Bun.spawnSync(
+      [process.execPath, "scripts/check-plugin.ts", "--bump-patch"],
+      { cwd: temp },
+    );
+    expect(result.exitCode).toBe(0);
+    const after = JSON.parse(await readFile(join(temp, "package.json"), "utf8"));
+    const parts = before.version.split(".");
+    expect(after.version).toBe(`${parts[0]}.${parts[1]}.${Number(parts[2]) + 1}`);
+    expect(after.scripts).toEqual(before.scripts);
+    for (const path of manifests) {
+      const manifest = JSON.parse(await readFile(join(temp, path), "utf8"));
+      if (manifest.version) expect(manifest.version).toBe(after.version);
+      for (const plugin of manifest.plugins ?? [])
+        if (plugin.version) expect(plugin.version).toBe(after.version);
+    }
+  } finally {
+    await rm(temp, { recursive: true, force: true });
+  }
 });

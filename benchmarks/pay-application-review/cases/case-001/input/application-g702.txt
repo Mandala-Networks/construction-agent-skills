@@ -1,0 +1,24 @@
+SYNTHETIC BENCHMARK FIXTURE - NOT A REAL PROJECT OR A REAL PAYMENT REQUEST
+
+APPLICATION AND CERTIFICATE FOR PAYMENT
+Project: Benchmark Case PAR-001            Application No: 7
+Period to: 2026-03-31                      Contract date: 2025-08-04
+
+  1. ORIGINAL CONTRACT SUM ....................................  2,400,000.00
+  2. NET CHANGE BY CHANGE ORDERS .............................      70,000.00
+  3. CONTRACT SUM TO DATE (Line 1 +/- Line 2) ................  2,470,000.00
+  4. TOTAL COMPLETED AND STORED TO DATE (Column G) ...........  1,270,000.00
+  5. RETAINAGE
+       a. 10% of completed work (Columns D + E) ..............    117,500.00
+       b. 10% of stored material (Column F) .................       9,500.00
+       Total retainage (5a + 5b) .............................     127,000.00
+  6. TOTAL EARNED LESS RETAINAGE (Line 4 less Line 5) ........  1,143,000.00
+  7. LESS PREVIOUS CERTIFICATES FOR PAYMENT ..................  1,020,000.00
+  8. CURRENT PAYMENT DUE .....................................    128,000.00
+  9. BALANCE TO FINISH, INCLUDING RETAINAGE ..................  1,327,000.00
+
+CHANGE ORDER SUMMARY
+  CO-001  Added entry canopy               EXECUTED 2026-01-12    +85,000.00
+  CO-002  Deleted exterior signage         EXECUTED 2026-02-20    -15,000.00
+  PCO-004 Revised entry canopy glazing     PENDING - not executed  +42,000.00
+  Net change by executed change orders                             +70,000.00

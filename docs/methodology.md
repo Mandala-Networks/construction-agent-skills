@@ -31,3 +31,45 @@ Deterministic assertions should be evaluated by code. Subjective checks such as
 usefulness or readability should use a blinded human rubric and publish the
 number of reviewers.
 
+
+## Traps are part of the expected file
+
+A case that only lists what a correct answer must contain measures recall and nothing else. Each
+`expected.json` also carries `forbiddenIds`: findings a plausible wrong answer produces and a
+correct one does not.
+
+The seeded traps in the current cases:
+
+- **schedule-logic-review** — the project start and finish milestones each have one legitimate
+  open end. A reviewer that reports them as defects is applying the DCMA logic check without
+  knowing its exception, and scores a hallucination.
+- **pay-application-review** — a deductive change order carries a negative scheduled value. That
+  is correct, not an arithmetic defect. So is Line 6, which foots even though Lines 7 and 8 do
+  not; a reviewer that flags every line near a real error is pattern matching, not checking.
+
+A trap must be something a competent-sounding answer actually does. Inventing an implausible
+wrong answer to fail against inflates the score without measuring anything.
+
+## One result contract, many output shapes
+
+Skills return different top-level keys — `requirements`, `defects`, `submittals`,
+`potentialChanges`. Each `benchmark.json` declares which key carries the primary list:
+
+```json
+{ "candidate": { "primaryKey": "defects", "conflictKey": "conflicts" } }
+```
+
+The grader normalizes against that declaration, so every skill is scored by the same code and
+emits the same five measures against `schemas/benchmark-result.schema.json`. Results stay
+comparable across skills without forcing every skill into one output shape.
+
+## Status vocabulary
+
+`catalog.json` carries one of two statuses per skill.
+
+- **specification** — the decision rules are written and reviewed; fixtures are not built.
+  Usable, but its behavior is unmeasured. Say so when reporting on it.
+- **benchmark-ready** — a runnable case with synthetic fixtures, seeded traps, and an example
+  submission scoring 1.0.
+
+Never describe a specification-status skill as validated.

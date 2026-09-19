@@ -24,3 +24,8 @@ execution, leases, retention, retries, and credentials.
 Return status, evidenceRefs, affectedOperation, safeSummary, recommendedAction,
 and notificationReason (or null). Do not execute jobs, purge data, edit schedules,
 change grants, or send messages merely because a run failed.
+
+## Boundaries
+
+Provide evidence and recommendations only. Execution permissions, production changes, and
+contractual or financial decisions remain with the host and the named human owner.

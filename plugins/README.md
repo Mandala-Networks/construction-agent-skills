@@ -1,21 +1,21 @@
 # Install and verify
 
 Canonical skills live in `skills/`; role instructions live in `agents/`.
-Two marketplace catalogs share one plugin root, following b-open-io/prompts.
+Platform marketplace catalogs share one plugin root, following b-open-io/prompts.
 Exports translate file layout and role metadata without forking the instructions.
-The marketplace is named **mandala-construction** and the plugin is
-**construction-agent-skills**. These local changes must reach a remote branch
+The marketplace is named **mandala-networks** and the plugin is
+**construction-skills**. These local changes must reach a remote branch
 before a GitHub installation can retrieve them.
 
 ## Compatibility evidence (2026-09-19)
 
 | Platform | Distribution | Verified locally | Still unverified |
 | --- | --- | --- | --- |
-| Claude Code 2.1.276 | Claude marketplace or workspace export | Isolated marketplace installation; 6 skills and 4 roles inventoried | Model behavior |
-| Grok Build 1.0.34 | Claude-compatible plugin/marketplace or workspace export | Isolated plugin installation discovers 6 skills and 4 roles | Direct workspace skill discovery was absent in an untrusted folder; verify trust in the UI |
+| Claude Code 2.1.276 | Claude marketplace or workspace export | Isolated marketplace installation; 14 skills and 5 roles inventoried | Model behavior |
+| Grok Build 1.0.34 | Claude-compatible plugin/marketplace or workspace export | Isolated plugin installation discovers 14 skills and 5 roles | Direct workspace skill discovery was absent in an untrusted folder; verify trust in the UI |
 | Codex CLI 0.154.0 | Codex marketplace or workspace export | Manifest validation, TOML parsing, contained role references | Native marketplace install and agent discovery |
-| OpenCode 1.18.30 | `.opencode/skills` and `.opencode/agents` export | Native discovery of 6 skills and 4 subagents | Model behavior |
-| OpenWork 0.18.48 | Claude-compatible plugin import; OpenCode-layout workspace export | All 6 skills visible in desktop skill picker after opening exported local workspace | Desktop subagent behavior, manifest import, managed Cloud publication |
+| OpenCode 1.18.30 | `.opencode/skills` and `.opencode/agents` export | Native discovery of 14 skills and 5 subagents | Model behavior |
+| OpenWork 0.18.48 | Claude-compatible plugin import; OpenCode-layout workspace export | Previous six-skill bundle visible in desktop skill picker after opening exported local workspace | Desktop subagent behavior, manifest import, managed Cloud publication |
 
 A manifest check is not an installation test; a discovery check is not a domain
 evaluation. The table deliberately separates them. No provider or MCP connection
@@ -29,12 +29,12 @@ Run these in this repository root, only for the host you intend to configure:
 ```sh
 # Claude Code
 claude plugin marketplace add .
-claude plugin install construction-agent-skills@mandala-construction
-claude plugin details construction-agent-skills@mandala-construction
+claude plugin install construction-skills@mandala-networks
+claude plugin details construction-skills@mandala-networks
 
 # Codex
 codex plugin marketplace add .
-codex plugin add construction-agent-skills@mandala-construction
+codex plugin add construction-skills@mandala-networks
 
 # Grok Build (shared Claude-compatible catalog)
 grok plugin marketplace add .
@@ -46,7 +46,7 @@ grok inspect --json
 After merging these catalogs into the default branch, replace `.` with
 `Mandala-Networks/construction-agent-skills` to use a Git source. Do not pass a
 raw marketplace.json URL: relative source paths require the whole checkout.
-Restart the host after installation or updates and verify the six skill names.
+Restart the host after installation or updates and verify the skill names in catalog.json.
 Use each host's native update/uninstall commands; don't edit its cache manually.
 Install the plugin OR workspace export to avoid duplicate capabilities.
 
@@ -66,7 +66,7 @@ bun run export:workspace plugin /tmp/construction-plugin
 
 Each command writes only to the requested new directory and refuses an existing
 destination, including symlinks. No overwrite, shell hooks, credentials, or global
-configuration is installed. The source allowlist is skills, roles, and plugin
+configuration is installed. The source allowlist is skills, roles, commands in plugin bundles, and plugin
 manifests/catalogs where needed. Text-only resources are currently supported;
 symlinks, runtime-data names, invalid UTF-8, and suspicious secret patterns fail
 before destination creation. Human privacy review remains necessary.
@@ -88,7 +88,8 @@ OpenWork's [migration guide](https://openworklabs.com/docs/start-here/migrate-fr
 supports SKILL.md folders and Claude-compatible plugin manifests. The tested
 OpenWork 0.18.48 path is **Add workspace → Local workspace → Select folder**:
 choose the generated OpenWork directory, create the workspace, then open the
-composer's capability picker → Skills. All six construction skills appeared.
+composer's capability picker → Skills. The previous six-skill bundle appeared; the expanded
+fourteen-skill bundle is covered by export tests, not a new desktop interaction.
 No prompt was sent. Its Agents picker showed primary agents only; subagent
 behavior remains unverified in the desktop app.
 

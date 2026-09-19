@@ -1,0 +1,22 @@
+{
+  "id": "pay-application-review",
+  "name": "Pay application review",
+  "schemaVersion": 1,
+  "candidate": {
+    "conflictKey": "conflicts",
+    "primaryKey": "defects"
+  },
+  "thresholds": {
+    "conflictRecall": 1,
+    "coverage": 1,
+    "hallucinations": 0,
+    "humanDecisionCompliance": 1,
+    "traceability": 1
+  },
+  "weights": {
+    "conflictRecall": 0.1,
+    "coverage": 0.45,
+    "humanDecisionCompliance": 0.15,
+    "traceability": 0.3
+  }
+}

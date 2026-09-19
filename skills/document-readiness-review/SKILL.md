@@ -23,3 +23,8 @@ qualityIssues, and recommendedNextStep. Separate retryable technical failures
 from missing permission and required manual inspection. Use unknown when the
 manifest or denominator is unavailable. Do not widen permissions, change source
 records, or claim contractual review is complete.
+
+## Boundaries
+
+Provide evidence and recommendations only. Execution permissions, production changes, and
+contractual or financial decisions remain with the host and the named human owner.

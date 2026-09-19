@@ -1,0 +1,110 @@
+{
+  "application": {
+    "number": "7",
+    "periodTo": "2026-03-31",
+    "retainageRate": "10% on completed work; none on stored material"
+  },
+  "defects": [
+    {
+      "id": "g703-scheduled-value-sum-mismatch",
+      "location": "G703 Column C total",
+      "expected": "2470000.00",
+      "reported": "2512000.00",
+      "difference": "42000.00",
+      "check": "Sum of Column C must equal G702 Line 3",
+      "sourceRefs": ["G703 Column C total", "G702 Line 3"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "g703-line-03-column-g-mismatch",
+      "location": "G703 line 3, Sitework",
+      "expected": "306000.00",
+      "reported": "316000.00",
+      "difference": "10000.00",
+      "check": "G = D + E + F",
+      "sourceRefs": ["G703 line 3"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "g703-line-04-balance-mismatch",
+      "location": "G703 line 4, Concrete",
+      "expected": "156000.00",
+      "reported": "150000.00",
+      "difference": "6000.00",
+      "check": "H = C - G",
+      "sourceRefs": ["G703 line 4"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "g703-line-10-unexecuted-change-order",
+      "location": "G703 line 10, PCO-004",
+      "expected": "0.00",
+      "reported": "10000.00",
+      "difference": "10000.00",
+      "check": "Only executed change orders may be billed",
+      "sourceRefs": ["G703 line 10", "01 29 00, 3.6.A"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "g703-line-05-stored-material-substantiation",
+      "location": "G703 line 5, structural steel stored off site",
+      "expected": "invoice or bill of sale, certificate of insurance, owner's written consent",
+      "reported": "photographs and packing list only",
+      "difference": "95000.00 billed without required substantiation",
+      "check": "Off-site stored material substantiation",
+      "sourceRefs": ["G703 line 5", "01 29 00, 3.4.A"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "g702-line-05b-retainage-on-stored-materials",
+      "location": "G702 Line 5b",
+      "expected": "0.00",
+      "reported": "9500.00",
+      "difference": "9500.00",
+      "check": "Contract withholds no retainage on stored material",
+      "sourceRefs": ["G702 Line 5b", "01 29 00, 3.2.B"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "g702-line-07-prior-certificate-mismatch",
+      "location": "G702 Line 7",
+      "expected": "1050000.00",
+      "reported": "1020000.00",
+      "difference": "30000.00",
+      "check": "Line 7 equals the prior application's Line 6, not the amount remitted",
+      "sourceRefs": ["G702 Line 7"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "g702-line-08-arithmetic",
+      "location": "G702 Line 8",
+      "expected": "123000.00",
+      "reported": "128000.00",
+      "difference": "5000.00",
+      "check": "Line 8 = Line 6 - Line 7 as reported",
+      "sourceRefs": ["G702 Line 8"],
+      "needsHumanDecision": false
+    }
+  ],
+  "conflicts": [],
+  "judgmentItems": [
+    {
+      "summary": "Mobilization and sitework are billed well ahead of overall completion of 51.4%; whether the schedule of values is unbalanced is the owner's determination",
+      "sourceRefs": ["G703 line 1", "G703 line 3"],
+      "owner": "owner's representative"
+    }
+  ],
+  "checksNotRun": [
+    {
+      "check": "Lien waiver coverage",
+      "needs": "conditional and unconditional waivers from the contractor and lower tiers",
+      "owner": "project accountant"
+    }
+  ],
+  "unresolvedQuestions": [
+    {
+      "question": "Does the owner intend the 30,000.00 short payment on Application No. 6 to remain outstanding, or should Line 7 be restated?",
+      "owner": "owner's representative"
+    }
+  ]
+}

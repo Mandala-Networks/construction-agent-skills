@@ -1,0 +1,13 @@
+{
+  "errors": [
+    {
+      "id": "roofing-uom-understatement",
+      "line": "roofing",
+      "issue": "unit mismatch",
+      "detail": "10 SQ = 1000 SF; at 5 per SF the extension is 5000, not 50: 100x understatement",
+      "sourceRefs": ["takeoff.json roofing"]
+    }
+  ],
+  "conflicts": [],
+  "assumptionFlags": []
+}

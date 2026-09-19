@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { lstat, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, join, resolve } from "node:path";
+import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
+import { parseFrontmatter, renderAgent } from "./generate-codex-agents";
 import { sensitiveContent } from "./validate-package";
 
 export const platforms = [
@@ -42,6 +43,12 @@ async function collect(root: string, prefix: string): Promise<Map<string, string
       files.set(path.replaceAll("\\", "/"), text);
     }
   }
+  // A manifest's parent directory may itself be a symlink.
+  const parts = prefix.split("/");
+  for (let i = 1; i < parts.length; i++) {
+    if ((await lstat(join(root, ...parts.slice(0, i)))).isSymbolicLink())
+      throw new Error(`Symlinks cannot be exported: ${prefix}`);
+  }
   await walk(prefix);
   return files;
 }
@@ -66,23 +73,15 @@ export async function planExport(
   for (const [path, content] of skills) files.set(`${prefix}${path}`, content);
   for (const [path, content] of agents) {
     if (platform === "codex") {
-      const match = content.match(
-        /^---\nname: ([^\n]+)\ndescription: ([^\n]+)\n---\n([\s\S]*)$/,
-      );
-      if (!match) throw new Error(`Unsupported canonical agent frontmatter: ${path}`);
-      const [, name, description, body] = match;
-      const instructions = (body ?? "").replaceAll(
-        "../skills/",
-        "../../.agents/skills/",
-      );
-      files.set(
-        `.codex/agents/${name}.toml`,
-        `name = ${JSON.stringify(name)}\ndescription = ${JSON.stringify(description)}\ndeveloper_instructions = ${JSON.stringify(instructions)}\n`,
-      );
+      const rendered = renderAgent(join(root, path), content, "../../.agents/skills/");
+      const target = `.codex/agents/${rendered.generatedFile}`;
+      if (files.has(target)) throw new Error("Duplicate agent name");
+      files.set(target, rendered.content);
     } else if (platform === "opencode" || platform === "openwork") {
+      const { name, description, body } = parseFrontmatter(content);
       files.set(
         `${prefix}${path}`,
-        content.replace("\n---\n\n#", "\nmode: subagent\n---\n\n#"),
+        `---\nname: ${name}\ndescription: ${JSON.stringify(description)}\nmode: subagent\n---\n${body}`,
       );
     } else files.set(`${prefix}${path}`, content);
   }
@@ -90,14 +89,18 @@ export async function planExport(
     for (const path of [
       ".claude-plugin/plugin.json",
       ".codex-plugin/plugin.json",
+      ".grok-plugin/plugin.json",
+      ".grok-plugin/marketplace.json",
       ".claude-plugin/marketplace.json",
       ".agents/plugins/marketplace.json",
     ]) {
-      files.set(path, await readFile(join(root, path), "utf8"));
+      for (const [file, content] of await collect(root, path)) files.set(file, content);
     }
+    for (const [path, content] of await collect(root, "commands"))
+      files.set(path, content);
   }
   const version = JSON.parse(
-    await readFile(join(root, "package.json"), "utf8"),
+    (await collect(root, "package.json")).get("package.json") ?? "{}",
   ).version;
   const hashes = Object.fromEntries(
     [...files].map(([path, content]) => [
@@ -119,9 +122,15 @@ export async function exportWorkspace(
 ): Promise<void> {
   // Validate and read everything before writing. Exclusive mkdir prevents overwrites.
   const files = await planExport(root, platform);
+  const targets = [...files].map(([path, content]) => {
+    const target = resolve(destination, path);
+    const rel = relative(resolve(destination), target);
+    if (!rel || rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel))
+      throw new Error("Export path escapes destination");
+    return { target, content };
+  });
   await mkdir(destination, { recursive: false });
-  for (const [path, content] of files) {
-    const target = join(destination, path);
+  for (const { target, content } of targets) {
     await mkdir(dirname(target), { recursive: true });
     await writeFile(target, content, { flag: "wx" });
   }

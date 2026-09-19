@@ -22,3 +22,8 @@ The host retrieves and stores data; this skill does not choose vendors or prices
 Return observationsUsed, comparableChanges, freshness, failedSeries, sourceRefs,
 and reviewQuestions. Request missing metadata when needed. No buying, repricing,
 contract escalation, external messaging, or automatic budget changes.
+
+## Boundaries
+
+Provide evidence and recommendations only. Execution permissions, production changes, and
+contractual or financial decisions remain with the host and the named human owner.
