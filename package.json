@@ -1,6 +1,6 @@
 {
   "name": "@mandala-networks/construction-agent-skills",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Portable construction evidence review and automation triage skills",
   "module": "index.ts",
   "type": "module",
@@ -12,7 +12,9 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
-    "validate:package": "bun run scripts/validate-package.ts"
+    "validate:package": "bun run scripts/validate-package.ts",
+    "export:workspace": "bun run scripts/export-workspace.ts",
+    "smoke:platforms": "bun run scripts/smoke-platforms.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",

@@ -1,8 +1,10 @@
 # Agent responsibilities and host contract
 
 These four roles are draft instruction definitions, not deployed services.
-Claude can discover `agents/`; other hosts can read the same role explicitly.
-Native adapters should be added only with an isolated discovery and behavior test.
+Claude and Grok can discover the plugin roles; workspace exports also produce
+Codex TOML and OpenCode/OpenWork subagent definitions. See
+[platform evidence](../plugins/README.md) for tested discovery and remaining
+native/model evaluation gates.
 
 | Role | Skill responsibility | Trigger | Evaluation priority |
 | --- | --- | --- | --- |

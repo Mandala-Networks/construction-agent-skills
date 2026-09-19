@@ -78,3 +78,13 @@ Only the bid example currently has a runnable domain scorer. The other skills
 and role definitions still need blind model evaluations and host smoke tests.
 No customer configuration, cron schedule, model credentials, or live task data
 belongs in this library. Consumer-specific automation maps stay downstream.
+
+## Multi-platform distribution
+
+The `mandala-construction` marketplace catalogs now serve Claude-compatible hosts
+and Codex. Workspace exports cover Claude Code, Codex, Grok Build, OpenCode, and
+OpenWork; one source tree produces every format. See [installation and verified
+compatibility](plugins/README.md) for exact commands and platform limitations.
+Run `bun run smoke:platforms` for optional native CLI discovery checks without
+model calls. OpenWork desktop skill discovery is verified; Codex native installation and
+OpenWork subagent behavior remain manual gates.

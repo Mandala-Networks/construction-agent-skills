@@ -1,0 +1,16 @@
+{
+  "name": "mandala-construction",
+  "owner": {
+    "name": "Mandala Networks"
+  },
+  "plugins": [
+    {
+      "name": "construction-agent-skills",
+      "source": "./",
+      "description": "Portable construction evidence review and automation triage skills"
+    }
+  ],
+  "metadata": {
+    "description": "Generic construction skills and review roles for compatible AI assistants."
+  }
+}
