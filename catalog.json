@@ -8,23 +8,48 @@
       "status": "benchmark-ready",
       "benchmark": "benchmarks/bid-requirements-register"
     },
-    { "id": "csi-spec-router", "status": "specification" },
-    { "id": "drawing-revision-change-log", "status": "specification" },
+    {
+      "id": "csi-spec-router",
+      "status": "specification"
+    },
+    {
+      "id": "drawing-revision-change-log",
+      "status": "specification"
+    },
     {
       "id": "pay-application-review",
       "status": "benchmark-ready",
       "benchmark": "benchmarks/pay-application-review"
     },
-    { "id": "quantity-takeoff-audit", "status": "specification" },
-    { "id": "rfi-drafting", "status": "specification" },
-    { "id": "safety-jha", "status": "specification" },
+    {
+      "id": "quantity-takeoff-audit",
+      "status": "benchmark-ready",
+      "benchmark": "benchmarks/quantity-takeoff-audit"
+    },
+    {
+      "id": "rfi-drafting",
+      "status": "specification"
+    },
+    {
+      "id": "safety-jha",
+      "status": "specification"
+    },
     {
       "id": "schedule-logic-review",
       "status": "benchmark-ready",
       "benchmark": "benchmarks/schedule-logic-review"
     },
-    { "id": "schedule-optimization", "status": "specification" },
-    { "id": "subcontractor-scope-gap-review", "status": "specification" },
-    { "id": "submittal-register", "status": "specification" }
+    {
+      "id": "schedule-optimization",
+      "status": "specification"
+    },
+    {
+      "id": "subcontractor-scope-gap-review",
+      "status": "specification"
+    },
+    {
+      "id": "submittal-register",
+      "status": "specification"
+    }
   ]
 }

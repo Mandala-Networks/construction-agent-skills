@@ -4,6 +4,10 @@ All notable changes to this plugin are recorded here. This file is a release art
 
 ## [Unreleased]
 
+- Correct stored-material carry-forward and roofing unit-error direction; add synthetic regression benchmarks.
+- Align pay-application and schedule output contracts with their graders.
+- Keep installation URLs on the existing repository and use native Grok source syntax and agent discovery.
+
 ## [0.2.0] - 2026-08-25
 
 ### Added

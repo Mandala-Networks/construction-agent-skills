@@ -1,0 +1,49 @@
+{
+  "notice": "SYNTHETIC BENCHMARK FIXTURE - NOT A REAL PROJECT",
+  "priorApplication": 6,
+  "currentApplication": 7,
+  "rows": [
+    {
+      "id": "still-stored",
+      "prior": {
+        "D": 100,
+        "E": 20,
+        "F": 30
+      },
+      "current": {
+        "D": 120,
+        "E": 0,
+        "F": 30,
+        "G": 150
+      }
+    },
+    {
+      "id": "now-installed",
+      "prior": {
+        "D": 100,
+        "E": 20,
+        "F": 30
+      },
+      "current": {
+        "D": 120,
+        "E": 30,
+        "F": 0,
+        "G": 150
+      }
+    },
+    {
+      "id": "double-counted",
+      "prior": {
+        "D": 100,
+        "E": 20,
+        "F": 30
+      },
+      "current": {
+        "D": 150,
+        "E": 0,
+        "F": 30,
+        "G": 180
+      }
+    }
+  ]
+}

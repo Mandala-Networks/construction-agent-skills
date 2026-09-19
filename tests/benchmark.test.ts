@@ -127,3 +127,44 @@ describe("pay application review benchmark", () => {
     expect(result.passed).toBe(false);
   });
 });
+
+describe("documented output contracts", () => {
+  for (const [skill, benchmark, candidate, expected] of [
+    ["pay-application-review", payBenchmark, payCandidate, payExpected],
+    ["schedule-logic-review", scheduleBenchmark, scheduleCandidate, scheduleExpected],
+  ] as const) {
+    test(`${skill}: findings retain grading fields through the documented shape`, async () => {
+      const text = await Bun.file(`skills/${skill}/SKILL.md`).text();
+      const example = JSON.parse(text.match(/```json\n([\s\S]*?)\n```/)?.[1] ?? "{}");
+      const key = benchmark.candidate.primaryKey;
+      expect(Array.isArray(example[key])).toBe(true);
+      const fields = Object.keys(example[key][0]);
+      const findings = candidate.defects.map((finding) =>
+        Object.fromEntries(fields.map((field) => [field, Reflect.get(finding, field)])),
+      );
+      expect(
+        evaluateCandidate(benchmark, expected, { [key]: findings, conflicts: [] }),
+      ).toMatchObject(perfect);
+    });
+  }
+});
+
+describe("construction arithmetic regression cases", () => {
+  for (const [skill, caseId, trap] of [
+    ["pay-application-review", "case-002", "still-stored-carryforward"],
+    ["quantity-takeoff-audit", "case-001", "roofing-uom-overstatement"],
+  ]) {
+    test(`${skill}: the correct finding passes and the seeded opposite fails`, async () => {
+      const base = `benchmarks/${skill}`;
+      const benchmark = await Bun.file(`${base}/benchmark.json`).json();
+      const candidate = await Bun.file(
+        `${base}/cases/${caseId}/candidate.example.json`,
+      ).json();
+      const expected = await Bun.file(`${base}/cases/${caseId}/expected.json`).json();
+      expect(evaluateCandidate(benchmark, expected, candidate)).toMatchObject(perfect);
+      const key = benchmark.candidate.primaryKey;
+      candidate[key].push({ id: trap, sourceRefs: [] });
+      expect(evaluateCandidate(benchmark, expected, candidate).passed).toBe(false);
+    });
+  }
+});

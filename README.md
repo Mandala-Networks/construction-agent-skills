@@ -12,20 +12,20 @@ leaving consequential decisions with a person.
 
 ```bash
 # Claude Code
-/plugin marketplace add Mandala-Networks/construction-skills
+/plugin marketplace add Mandala-Networks/construction-agent-skills
 /plugin install construction-skills@mandala-networks
 
 # Codex
-codex plugin marketplace add Mandala-Networks/construction-skills
+codex plugin marketplace add Mandala-Networks/construction-agent-skills
 codex plugin add construction-skills@mandala-networks
 
 # Grok Build
-grok plugin install construction-skills@mandala-networks --trust
+grok plugin install Mandala-Networks/construction-agent-skills --trust
 ```
 
 One `skills/` directory serves all three hosts. Claude Code and Grok Build discover it
 automatically; the Codex manifest declares it. Rob ships as a Claude Code subagent
-(`agents/rob.md`), as an `AGENTS.md` adapter for Grok Build, and as a generated Codex custom
+(`agents/rob.md`) shared with Grok Build, and as a generated Codex custom
 agent (`codex/agents/rob.toml`).
 
 ## Skills
@@ -40,7 +40,7 @@ agent (`codex/agents/rob.toml`).
 | **rfi-drafting** | An RFI that asks one answerable question instead of answering it | Specification |
 | **subcontractor-scope-gap-review** | Crosswalk a proposal against scope; silence stays `not addressed` | Specification |
 | **drawing-revision-change-log** | Sheet-by-sheet delta between two drawing issues, with coverage reported | Specification |
-| **quantity-takeoff-audit** | Unit-of-measure errors, double-counted waste, unstated geometry assumptions | Specification |
+| **quantity-takeoff-audit** | Unit-of-measure errors, double-counted waste, unstated geometry assumptions | Benchmarked |
 | **safety-jha** | Task hazard analysis ranked by the hierarchy of controls with OSHA 1926 references | Specification |
 | **schedule-optimization** | Crashing, levelling, RCPSP, and multi-objective trade-offs with a Pareto front | Specification |
 
@@ -90,7 +90,7 @@ Everything else is prose the model would have produced anyway, and it benchmarks
 
 ```text
 skills/           Portable SKILL.md packages, shared by all three hosts
-agents/           Rob, canonical Claude Code definition plus the Grok AGENTS.md adapter
+agents/           Rob, canonical agent definition shared with Grok Build
 codex/agents/     Generated Codex custom agent adapters - do not edit by hand
 commands/         Slash commands
 benchmarks/       Cases, synthetic fixtures, expected facts, and example submissions

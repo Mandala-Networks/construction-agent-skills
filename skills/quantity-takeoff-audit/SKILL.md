@@ -101,7 +101,7 @@ These are the assumptions that silently change a quantity by double digits:
       "id": "roofing-uom",
       "line": "07-500-010 Membrane roofing",
       "issue": "unit mismatch",
-      "detail": "quantity in SQ, unit price in SF; 100x overstatement",
+      "detail": "quantity in SQ, unit price in SF; 100x understatement",
       "sourceRefs": ["takeoff row 42", "unit price sheet line 12"]
     }
   ],

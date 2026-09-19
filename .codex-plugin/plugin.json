@@ -7,8 +7,8 @@
     "name": "Mandala Networks",
     "url": "https://github.com/Mandala-Networks"
   },
-  "homepage": "https://github.com/Mandala-Networks/construction-skills",
-  "repository": "https://github.com/Mandala-Networks/construction-skills",
+  "homepage": "https://github.com/Mandala-Networks/construction-agent-skills",
+  "repository": "https://github.com/Mandala-Networks/construction-agent-skills",
   "keywords": [
     "construction",
     "aec",
@@ -26,7 +26,7 @@
     "developerName": "Mandala Networks",
     "category": "Productivity",
     "capabilities": ["Skills"],
-    "websiteURL": "https://github.com/Mandala-Networks/construction-skills",
+    "websiteURL": "https://github.com/Mandala-Networks/construction-agent-skills",
     "defaultPrompt": ["Ask Rob which construction workflow fits the documents I have."]
   }
 }

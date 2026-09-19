@@ -28,7 +28,7 @@ This repository is a plugin for three agent harnesses. Its canonical behavior li
 
 ## Agents
 
-- `agents/<name>.md` is canonical. `agents/<name>/AGENTS.md` is a symlink to it for Grok Build.
+- `agents/<name>.md` is canonical and discovered by Claude Code and Grok Build.
 - `codex/agents/*.toml` is generated. Never hand-edit it — change the source `.md` and run
   `bun run codex:agents`.
 

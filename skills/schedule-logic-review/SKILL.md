@@ -97,6 +97,9 @@ Thresholds without meaning produce reports nobody acts on.
 
 ## Output
 
+Every defect needs a stable string `id`, its check number, failing activity or relationship
+source references, and `needsHumanDecision`. Preserve these fields when summarizing checks.
+
 ```json
 {
   "dataDate": "2026-03-31",
@@ -113,7 +116,16 @@ Thresholds without meaning produce reports nobody acts on.
       "note": "string"
     }
   ],
-  "defects": [{ "summary": "string", "activityIds": ["..."], "severity": "high" }],
+  "defects": [
+    {
+      "id": "dcma-01-open-end-A1120",
+      "check": 1,
+      "summary": "A1120 has no successor",
+      "sourceRefs": ["A1120"],
+      "needsHumanDecision": false
+    }
+  ],
+  "conflicts": [],
   "observations": [{ "summary": "string", "activityIds": ["..."] }],
   "notRun": [{ "id": 12, "reason": "network could not be recalculated from the export" }],
   "unresolvedQuestions": [{ "question": "string", "owner": "string" }]

@@ -12,8 +12,8 @@ so a change to one manifest is never made blind.
 | Marketplace | `.claude-plugin/marketplace.json` | `.agents/plugins/marketplace.json` | `.grok-plugin/marketplace.json` |
 | Skills | `skills/` auto-discovered | declared: `"skills": "./skills/"` | `skills/` auto-discovered |
 | Commands | `commands/` auto-discovered | not supported | `commands/` auto-discovered |
-| Agents | `agents/*.md` | `codex/agents/*.toml`, installed separately | `AGENTS.md` family |
-| Install | `/plugin install construction-skills@mandala-networks` | `codex plugin add construction-skills@mandala-networks` | `grok plugin install construction-skills@mandala-networks --trust` |
+| Agents | `agents/*.md` | `codex/agents/*.toml`, installed separately | `agents/*.md` |
+| Install | `/plugin install construction-skills@mandala-networks` | `codex plugin add construction-skills@mandala-networks` | `grok plugin install Mandala-Networks/construction-agent-skills --trust` |
 
 Only `plugin.json` and `marketplace.json` belong inside the dot-prefixed plugin directories.
 Every component directory — `skills/`, `commands/`, `agents/`, `hooks/` — lives at the
@@ -53,8 +53,7 @@ crowd out another publisher's plugin.
 `agents/rob.md` is canonical.
 
 - **Claude Code** loads it directly as a subagent and exposes it as `construction-skills:rob`.
-- **Grok Build** discovers the `AGENTS.md` family. `agents/rob/AGENTS.md` is a symlink to
-  `../rob.md`, so there is one file to maintain and nothing to drift.
+- **Grok Build** discovers the same `agents/*.md` definitions natively; no symlink adapter is needed.
 - **Codex** resolves custom agents from `.toml` files, not from the plugin manifest, and
   installs them separately from the plugin. `scripts/generate-codex-agents.ts` renders
   `codex/agents/rob.toml` from the source `.md`, prepending a runtime-translation prelude that

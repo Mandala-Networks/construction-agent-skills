@@ -53,7 +53,9 @@ varies by line
 1. Sum of Column C equals Line 3. If it equals Line 1 instead, the change orders were never
    added to the schedule of values.
 2. For every line: `G = D + E + F`, and `H = C − G`.
-3. No line where `G > C`. A line over 100% is either an unposted change order or an error.
+3. For positive scheduled values, flag `G > C`. Reconcile negative scheduled values against
+   executed deductive change orders separately; `G = 0` on a not-yet-applied credit is not
+   an overbilling finding solely because `G > C`.
 4. Line 4 equals the sum of Column G.
 5. Line 5 equals 5a + 5b, and each is the contract retainage rate applied to the right base.
    Retainage on stored materials is frequently at a different rate or not withheld at all —
@@ -61,8 +63,11 @@ varies by line
 6. Line 6 = Line 4 − Line 5. Line 8 = Line 6 − Line 7. Line 9 = Line 3 − Line 6.
 7. Line 7 equals the **prior application's Line 6**, not the prior amount paid. They differ
    whenever a prior payment was short-paid or is still outstanding.
-8. Column D this period equals Column G from the prior application. A jump means the prior
-   period was restated — flag it.
+8. Column D this period equals **D + E from the prior application**, excluding prior F.
+   Materials still stored remain in F; materials installed this period move from prior F
+   into current E. Reconcile the transfer separately to avoid double counting. If the prior
+   continuation sheet is missing, report this check as `not run`. See the
+   [AIA completion instructions](https://help.aiacontracts.com/hc/en-us/articles/1500009290501-Completing-payment-applications-in-ACD5).
 
 **Change orders**
 
@@ -77,7 +82,7 @@ varies by line
 12. Column F requires substantiation: invoice or bill of sale, evidence of transfer of title,
     insurance covering the material, and — for off-site storage — the owner's written consent
     and typically a bonded warehouse or right of access. List which are missing.
-13. Material previously billed as stored must move from F into D/E as it is installed, not be
+13. Material previously billed as stored must move from F into current E as it is installed, not be
     double counted. Check the prior application.
 14. Stored material is not stored *work*. Column F carries material cost, not installed value
     with markup.
@@ -111,23 +116,27 @@ varies by line
 
 ## Output
 
+Put all demonstrated arithmetic, change-order, and stored-material defects in `defects`,
+with stable IDs, source references, and `needsHumanDecision`. Use the `check` field to identify
+the failed rule; expected/reported/difference may describe missing substantiation as text.
+Keep observations requiring judgment in `judgmentItems`; do not call them arithmetic defects.
+
 ```json
 {
   "application": { "number": "unknown", "periodTo": "unknown", "retainageRate": "unknown" },
-  "arithmeticDefects": [
+  "defects": [
     {
       "id": "line-8-mismatch",
       "location": "G702 Line 8",
       "expected": "407900.00",
       "reported": "412900.00",
       "difference": "5000.00",
-      "check": "Line 6 - Line 7"
+      "check": "Line 6 - Line 7",
+      "sourceRefs": ["G702 Line 6", "G702 Line 7", "G702 Line 8"],
+      "needsHumanDecision": false
     }
   ],
-  "changeOrderFindings": [{ "summary": "string", "sourceRefs": ["..."] }],
-  "storedMaterialFindings": [
-    { "line": "string", "amount": "string", "missingSubstantiation": ["insurance certificate"] }
-  ],
+  "conflicts": [],
   "judgmentItems": [
     { "summary": "string", "sourceRefs": ["..."], "owner": "owner's representative" }
   ],
