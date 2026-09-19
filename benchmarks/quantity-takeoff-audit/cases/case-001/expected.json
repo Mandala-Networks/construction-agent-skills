@@ -1,0 +1,10 @@
+{
+  "caseId": "case-001",
+  "requiredRequirementIds": ["roofing-uom-understatement"],
+  "requiredSourceRefs": {
+    "roofing-uom-understatement": ["takeoff.json roofing"]
+  },
+  "humanDecisionRequirements": [],
+  "forbiddenIds": ["roofing-uom-overstatement"],
+  "requiredConflictIds": []
+}

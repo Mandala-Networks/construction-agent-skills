@@ -1,0 +1,13 @@
+{
+  "caseId": "case-002",
+  "requiredRequirementIds": ["prior-work-double-counted"],
+  "requiredSourceRefs": {
+    "prior-work-double-counted": [
+      "rollforward.json double-counted prior",
+      "rollforward.json double-counted current"
+    ]
+  },
+  "humanDecisionRequirements": [],
+  "forbiddenIds": ["still-stored-carryforward", "now-installed-carryforward"],
+  "requiredConflictIds": []
+}

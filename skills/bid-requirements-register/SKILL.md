@@ -1,6 +1,14 @@
 ---
 name: bid-requirements-register
-description: Build a sourced bid checklist from invitations, instructions, addenda, and specification extracts.
+description: >-
+  Build a traceable register of bid dates, submission rules, meetings, bonds, insurance,
+  alternates, and other response requirements from invitations, instructions to bidders,
+  addenda, and specification extracts. Use when asked to "what do we need to bid this",
+  "build a bid checklist", "pull the bid requirements", "when is this bid due", or when handed
+  an invitation to bid, instructions to bidders, or a bid package.
+metadata:
+  author: mandala-networks
+  version: "0.2.0"
 ---
 
 # Bid requirements register

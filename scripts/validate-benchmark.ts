@@ -1,23 +1,67 @@
 import { dirname, join, resolve } from "node:path";
 
-interface Candidate {
-  conflicts: Array<{ id: string; sourceRefs: string[] }>;
-  requirements: Array<{
-    id: string;
-    needsHumanDecision: boolean;
-    sourceRefs: string[];
-  }>;
+interface Finding {
+  id: string;
+  needsHumanDecision?: boolean;
+  sourceRefs?: string[];
 }
+
+interface Candidate {
+  [key: string]: unknown;
+  conflicts?: Finding[];
+  requirements?: Finding[];
+}
+
+interface NormalizedCandidate {
+  conflicts: Finding[];
+  findings: Finding[];
+}
+
+/**
+ * Every skill returns its own top-level key - requirements, findings,
+ * submittals, potentialChanges. The benchmark declares which key carries the
+ * primary list so one grader and one result contract cover every skill.
+ */
+interface CandidateShape {
+  conflictKey: string;
+  primaryKey: string;
+}
+
+const DEFAULT_SHAPE: CandidateShape = {
+  conflictKey: "conflicts",
+  primaryKey: "requirements",
+};
+
+const asFindings = (value: unknown): Finding[] =>
+  Array.isArray(value)
+    ? value.filter(
+        (item): item is Finding =>
+          typeof item === "object" &&
+          item !== null &&
+          typeof (item as Finding).id === "string",
+      )
+    : [];
+
+export const normalizeCandidate = (
+  candidate: Candidate,
+  shape: CandidateShape = DEFAULT_SHAPE,
+): NormalizedCandidate => ({
+  conflicts: asFindings(candidate[shape.conflictKey]),
+  findings: asFindings(candidate[shape.primaryKey]),
+});
 
 interface Expected {
   caseId: string;
   humanDecisionRequirements: string[];
+  /** Ids a correct answer must never report. Unlisted extras also count. */
+  forbiddenIds?: string[];
   requiredConflictIds: string[];
   requiredRequirementIds: string[];
   requiredSourceRefs: Record<string, string[]>;
 }
 
 interface Benchmark {
+  candidate?: CandidateShape;
   id: string;
   thresholds: Metrics;
   weights: Omit<Metrics, "hallucinations">;
@@ -42,22 +86,25 @@ export const evaluateCandidate = (
   expected: Expected,
   candidate: Candidate,
 ) => {
-  const candidateRequirementIds = new Set(
-    candidate.requirements.map((item) => item.id),
+  const normalized = normalizeCandidate(
+    candidate,
+    benchmark.candidate ?? DEFAULT_SHAPE,
   );
-  const candidateConflictIds = new Set(candidate.conflicts.map((item) => item.id));
+  const candidateRequirementIds = new Set(normalized.findings.map((item) => item.id));
+  const candidateConflictIds = new Set(normalized.conflicts.map((item) => item.id));
   const requiredIds = new Set(expected.requiredRequirementIds);
   const coverageCount = expected.requiredRequirementIds.filter((id) =>
     candidateRequirementIds.has(id),
   ).length;
+  const forbiddenIds = new Set(expected.forbiddenIds ?? []);
   const hallucinations = [...candidateRequirementIds].filter(
-    (id) => !requiredIds.has(id),
+    (id) => !requiredIds.has(id) || forbiddenIds.has(id),
   ).length;
 
   let requiredReferenceCount = 0;
   let matchedReferenceCount = 0;
   for (const [id, references] of Object.entries(expected.requiredSourceRefs)) {
-    const requirement = candidate.requirements.find((item) => item.id === id);
+    const requirement = normalized.findings.find((item) => item.id === id);
     const candidateReferences = new Set(requirement?.sourceRefs ?? []);
     requiredReferenceCount += references.length;
     matchedReferenceCount += references.filter((reference) =>
@@ -66,7 +113,9 @@ export const evaluateCandidate = (
   }
 
   const humanDecisionCount = expected.humanDecisionRequirements.filter((id) =>
-    candidate.requirements.some((item) => item.id === id && item.needsHumanDecision),
+    normalized.findings.some(
+      (item) => item.id === id && item.needsHumanDecision === true,
+    ),
   ).length;
   const conflictCount = expected.requiredConflictIds.filter((id) =>
     candidateConflictIds.has(id),

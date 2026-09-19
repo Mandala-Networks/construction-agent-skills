@@ -1,0 +1,25 @@
+{
+  "defects": [
+    {
+      "id": "prior-work-double-counted",
+      "location": "double-counted current D",
+      "expected": "120.00",
+      "reported": "150.00",
+      "difference": "30.00",
+      "check": "Current D equals prior D + E, excluding prior F",
+      "sourceRefs": [
+        "rollforward.json double-counted prior",
+        "rollforward.json double-counted current"
+      ],
+      "needsHumanDecision": false
+    }
+  ],
+  "conflicts": [],
+  "checksNotRun": [
+    {
+      "check": "Other application checks",
+      "needs": "Full application and contract",
+      "owner": "project accountant"
+    }
+  ]
+}

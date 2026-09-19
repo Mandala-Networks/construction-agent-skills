@@ -1,0 +1,15 @@
+ActivityID,Name,Type,Duration,Status,Predecessors,Constraint,TotalFloat,ActualFinish
+A1000,Notice to Proceed,Milestone,0,Complete,,,0,2026-02-02
+A1100,Mobilization,Task,10,Complete,A1000 FS,,0,2026-02-16
+A1150,Submit structural steel shop drawings,Task,15,Complete,A1100 FS,,0,2026-03-09
+A1160,Fabricate structural steel,Task,40,In Progress,A1150 FS+20,,0,
+A1200,Site clearing,Task,12,Complete,A1100 FS,,0,2026-03-04
+A1210,Excavation,Task,18,In Progress,A1200 FS,,0,
+A1220,Foundations,Task,25,Not Started,A1210 FS-5,,0,
+A1300,Temporary fencing,Task,5,Complete,A1100 FS,,32,2026-02-23
+A1400,Utility tie-in,Task,8,Not Started,A1220 FS,Must Finish On 2026-06-15,4,
+A1500,Landscaping,Task,10,Not Started,A1220 FS,,120,
+A1600,Steel erection,Task,20,Not Started,A1160 FS; A1220 FS,,-12,
+A1700,Curtain wall procurement,Task,90,In Progress,A1100 FS,,18,
+A1800,Survey control,Task,4,Complete,A1000 FS,,0,2026-04-20
+A1900,Substantial Completion,Milestone,0,Not Started,A1400 FS; A1500 FS; A1600 FS; A1700 FS,,-12,

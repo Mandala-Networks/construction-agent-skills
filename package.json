@@ -1,16 +1,21 @@
 {
-  "name": "@mandala-networks/construction-agent-skills",
-  "version": "0.1.0",
-  "description": "Benchmark-tested agent skills for construction workflows",
+  "name": "@mandala-networks/construction-skills",
+  "version": "0.2.0",
+  "description": "Benchmark-tested construction workflow skills and Rob, a construction operations agent",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "scripts": {
     "benchmark": "bun run index.ts",
+    "benchmark:all": "bun run scripts/run-benchmarks.ts",
     "benchmark:example": "bun run index.ts benchmarks/bid-requirements-register/cases/case-001/candidate.example.json",
-    "check": "bun run typecheck && bun run lint && bun test",
+    "check": "bun run typecheck && bun run lint && bun test && bun run plugin:check && bun run codex:agents:check",
+    "codex:agents": "bun run scripts/generate-codex-agents.ts",
+    "codex:agents:check": "bun run scripts/generate-codex-agents.ts --check",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
+    "plugin:bump": "bun run scripts/check-plugin.ts --bump-patch",
+    "plugin:check": "bun run scripts/check-plugin.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

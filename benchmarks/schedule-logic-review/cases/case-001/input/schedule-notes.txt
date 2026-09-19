@@ -1,0 +1,12 @@
+SYNTHETIC BENCHMARK FIXTURE - NOT A REAL PROJECT
+
+Project:        Benchmark Case SLR-001
+Data date:      2026-03-31
+Calendar:       5-day work week, no holidays in the reporting period
+Baseline:       none issued
+Resource load:  none; the export carries no resource or cost assignments
+
+A1000 is the project start milestone and A1900 is the project finish
+milestone. Relationship notation: "A1150 FS+20" is a finish-to-start
+relationship with a twenty working-day lag; "A1210 FS-5" is a finish-to-start
+relationship with a five working-day lead.

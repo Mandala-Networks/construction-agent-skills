@@ -1,0 +1,10 @@
+{
+  "notice": "SYNTHETIC BENCHMARK FIXTURE - NOT A REAL PROJECT",
+  "line": "roofing",
+  "quantity": 10,
+  "quantityUnit": "SQ",
+  "squareFeetPerSquare": 100,
+  "unitPrice": 5,
+  "priceUnit": "SF",
+  "reportedExtension": 50
+}
