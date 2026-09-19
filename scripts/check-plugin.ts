@@ -197,6 +197,9 @@ const bumpPatch = async (): Promise<string> => {
     }
     await Bun.write(join(ROOT, path), `${JSON.stringify(marketplace, null, 2)}\n`);
   }
+  const pkg = await readJson<Record<string, unknown>>("package.json");
+  pkg.version = next;
+  await Bun.write(join(ROOT, "package.json"), `${JSON.stringify(pkg, null, 2)}\n`);
   return next;
 };
 

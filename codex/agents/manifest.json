@@ -1,10 +1,50 @@
 {
   "agents": [
     {
+      "agentName": "automation_steward",
+      "description": "Interpret bounded job-run evidence and propose actionable operator follow-up.",
+      "generatedFile": "automation-steward.toml",
+      "generatedHash": "sha256:e50fdfc927070d21422fac4eecbf280b2f534ecdb092c4d309a92ed3a121bdcf",
+      "sourceHash": "sha256:31bdab9830135efbe196fa406ec0047c36a0686d48ba5771ac182558f981ed46",
+      "sourceName": "automation-steward",
+      "sourcePath": "agents/automation-steward.md",
+      "sourceVersion": "unversioned"
+    },
+    {
+      "agentName": "bid_reviewer",
+      "description": "Build bid requirements and compare proposal scope for estimator review.",
+      "generatedFile": "bid-reviewer.toml",
+      "generatedHash": "sha256:54c48783379b3c48e4eecda6f517f80c798828732856393f5c4fa52ad32d2ae7",
+      "sourceHash": "sha256:091055ba58b7e2ab84cf9ecd0e9d9f884d62d969f3b8e8029dfee367c8ca7376",
+      "sourceName": "bid-reviewer",
+      "sourcePath": "agents/bid-reviewer.md",
+      "sourceVersion": "unversioned"
+    },
+    {
+      "agentName": "document_controller",
+      "description": "Review prepared document coverage and revision differences before downstream construction analysis.",
+      "generatedFile": "document-controller.toml",
+      "generatedHash": "sha256:fe9e56f81825f28c7a652fb3216b2a339211094752cfd90d62134826d5d20d23",
+      "sourceHash": "sha256:a6ac8e991f55943142cb8e3e3d9be15a855641c43ea702bfb5e2b3843ef71ad2",
+      "sourceName": "document-controller",
+      "sourcePath": "agents/document-controller.md",
+      "sourceVersion": "unversioned"
+    },
+    {
+      "agentName": "material_analyst",
+      "description": "Interpret supplied material index observations and refresh exceptions.",
+      "generatedFile": "material-analyst.toml",
+      "generatedHash": "sha256:eaa8d7b068fd783d55819413a1e28e6f1f759bddac38ba4f800048de981ad969",
+      "sourceHash": "sha256:07d59689e69bc654754a3c0e1c1fee70f53da3c8602224ee82014af25224a671",
+      "sourceName": "material-analyst",
+      "sourcePath": "agents/material-analyst.md",
+      "sourceVersion": "unversioned"
+    },
+    {
       "agentName": "rob",
       "description": "Construction project delivery agent. Use when the work involves bid packages, specifications, drawings, submittals, RFIs, subcontractor proposals, CPM schedules, pay applications, quantity takeoffs, or site hazard analysis. Rob reads the documents, routes to the matching construction skill, and returns sourced findings with the decisions a human still owns. Not for general software work, and not for signing, submitting, pricing, or interpreting a contract.",
       "generatedFile": "rob.toml",
-      "generatedHash": "sha256:b7ecf5b7e53e8222076dd913788105da66ac655459ce94223c08a5823439387b",
+      "generatedHash": "sha256:8458768fd442593bd64d2ff2fcd3bb6b5f0175a88e4f4ee8f9c8a2dc6c828ee8",
       "sourceHash": "sha256:0648ce04ed9058d56d484cb7a291a7a919815405d343a733881a8ca4320790eb",
       "sourceName": "rob",
       "sourcePath": "agents/rob.md",

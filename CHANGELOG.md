@@ -4,6 +4,12 @@ All notable changes to this plugin are recorded here. This file is a release art
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-09-19
+
+- Integrate the expanded construction skill set with portable exports and four operational roles.
+- Validate source manifests and output paths before export; share agent parsing and Codex rendering.
+- Preserve all fourteen skills and five roles across platform exports.
+
 - Correct stored-material carry-forward and roofing unit-error direction; add synthetic regression benchmarks.
 - Align pay-application and schedule output contracts with their graders.
 - Keep installation URLs on the existing repository and use native Grok source syntax and agent discovery.
