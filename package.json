@@ -1,17 +1,18 @@
 {
   "name": "@mandala-networks/construction-agent-skills",
-  "version": "0.1.0",
-  "description": "Benchmark-tested agent skills for construction workflows",
+  "version": "0.1.1",
+  "description": "Portable construction evidence review and automation triage skills",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "scripts": {
     "benchmark": "bun run index.ts",
     "benchmark:example": "bun run index.ts benchmarks/bid-requirements-register/cases/case-001/candidate.example.json",
-    "check": "bun run typecheck && bun run lint && bun test",
+    "check": "bun run typecheck && bun run lint && bun test && bun run validate:package",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate:package": "bun run scripts/validate-package.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",

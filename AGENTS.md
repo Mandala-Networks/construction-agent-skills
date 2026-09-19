@@ -9,3 +9,7 @@
 - Add or update a benchmark whenever behavior changes.
 - Run **bun run check** before committing.
 
+
+- Keep both plugin manifests and package.json versions synchronized.
+- Keep deployment schedules, tenant configuration, and customer mappings downstream.
+- Document platform support honestly; package validation is not a runtime smoke test.

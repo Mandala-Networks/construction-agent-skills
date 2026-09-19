@@ -1,0 +1,11 @@
+{
+  "name": "construction-agent-skills",
+  "version": "0.1.1",
+  "description": "Portable construction evidence review and automation triage skills",
+  "author": {
+    "name": "Mandala Networks",
+    "url": "https://github.com/Mandala-Networks"
+  },
+  "repository": "https://github.com/Mandala-Networks/construction-agent-skills",
+  "keywords": ["construction", "document-control", "estimating", "skills"]
+}

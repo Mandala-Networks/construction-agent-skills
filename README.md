@@ -1,8 +1,8 @@
 # Construction Agent Skills
 
-Benchmark-tested skills and workflow components for construction agents.
+Portable skills and workflow components for construction agents.
 
-This private Mandala Networks repository turns narrow, repeatable construction
+This Mandala Networks repository turns narrow, repeatable construction
 tasks into portable skills, fixtures, and measurable evaluations. A skill is
 not ready because its prompt sounds convincing. It earns that label by running
 against representative documents, preserving source traceability, avoiding
@@ -45,7 +45,8 @@ benchmarks/   Cases, expected facts, rubrics, and example submissions
 schemas/      Stable result contracts for dashboards and comparisons
 scripts/      Deterministic validation and scoring
 docs/         Evaluation and data-handling methodology
-plugins/      Packaging notes for harness-specific adapters
+agents/       Generic draft agent roles
+plugins/      Platform support and installation notes
 ~~~
 
 ## Product principle
@@ -61,3 +62,19 @@ workflow in this library should therefore:
 
 See [the benchmark methodology](docs/methodology.md) and
 [contribution rules](CONTRIBUTING.md) before adding a skill.
+
+## Platform and agent foundation
+
+Claude and Codex manifests share the same canonical skills. See
+[platform support](plugins/README.md), [agent responsibilities](docs/agent-design.md),
+and the [improvement roadmap](docs/improvement-roadmap.md).
+
+Additional specification-stage skills: `document-readiness-review`,
+`material-index-review`, and `scheduled-job-triage`. Their synthetic manual
+acceptance cases live in `benchmarks/operational-review/scenarios.json`.
+
+Passing the example scorer or package checks is not model-quality evidence.
+Only the bid example currently has a runnable domain scorer. The other skills
+and role definitions still need blind model evaluations and host smoke tests.
+No customer configuration, cron schedule, model credentials, or live task data
+belongs in this library. Consumer-specific automation maps stay downstream.

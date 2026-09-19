@@ -13,6 +13,18 @@
     {
       "id": "subcontractor-scope-gap-review",
       "status": "specification"
+    },
+    {
+      "id": "document-readiness-review",
+      "status": "specification"
+    },
+    {
+      "id": "material-index-review",
+      "status": "specification"
+    },
+    {
+      "id": "scheduled-job-triage",
+      "status": "specification"
     }
   ]
 }
