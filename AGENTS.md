@@ -40,3 +40,8 @@ This repository is a plugin for three agent harnesses. Its canonical behavior li
   flow, or runtime behavior changes.
 - Pushing to the default branch publishes the plugin. Do not leave a committed version bump
   unpushed.
+
+- Keep package.json and all plugin manifest versions synchronized.
+- Keep deployment schedules, tenant configuration, and customer mappings downstream.
+- Document platform support honestly; package validation is not a runtime smoke test.
+- OpenCode and OpenWork use workspace exports; keep host metadata out of shared skills.

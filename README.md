@@ -28,6 +28,10 @@ automatically; the Codex manifest declares it. Rob ships as a Claude Code subage
 (`agents/rob.md`) shared with Grok Build, and as a generated Codex custom
 agent (`codex/agents/rob.toml`).
 
+See [installation and compatibility evidence](plugins/README.md) for workspace exports,
+OpenCode/OpenWork support, native smoke checks, and remaining runtime limitations.
+The package also includes bid-reviewer, document-controller, material-analyst, and automation-steward roles.
+
 ## Skills
 
 | Skill | Job to be done | Status |
@@ -35,6 +39,9 @@ agent (`codex/agents/rob.toml`).
 | **bid-requirements-register** | Sourced bid checklist from invitations, addenda, and spec extracts | Benchmarked |
 | **schedule-logic-review** | DCMA 14-point assessment of a CPM schedule, defect by activity | Benchmarked |
 | **pay-application-review** | G702/G703 arithmetic, retainage, stored materials, change order tie-out | Benchmarked |
+| **document-readiness-review** | Document coverage, extraction quality, and revision readiness | Specification |
+| **material-index-review** | Material index freshness and sourced changes | Specification |
+| **scheduled-job-triage** | Scheduled job outcomes and human-owned follow-up | Specification |
 | **csi-spec-router** | Place a document or requirement in the right MasterFormat section; convert legacy 5-digit numbers | Specification |
 | **submittal-register** | Submittal log from a project manual, classified by action, informational, and closeout | Specification |
 | **rfi-drafting** | An RFI that asks one answerable question instead of answering it | Specification |

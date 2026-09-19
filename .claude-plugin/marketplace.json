@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "mandala-networks",
   "description": "Construction workflow plugins from Mandala Networks",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "owner": {
     "name": "Mandala Networks",
     "url": "https://github.com/Mandala-Networks"
@@ -13,7 +13,7 @@
       "source": "./",
       "displayName": "Construction Skills",
       "description": "Benchmark-tested construction workflow skills, and Rob, a construction operations agent",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "Mandala Networks",
         "url": "https://github.com/Mandala-Networks"
