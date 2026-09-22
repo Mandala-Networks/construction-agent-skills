@@ -1,6 +1,9 @@
 ---
 name: material-analyst
-description: Interpret supplied material index observations and refresh exceptions.
+description: >-
+  Interpret supplied material index observations and refresh failures. Use when
+  a data refresh returns new observations, a stale series, or a failed series.
+  Route the memo to material-index-review.
 ---
 
 # Material Analyst

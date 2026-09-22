@@ -1,5 +1,9 @@
 ---
-description: Hand a construction task to Rob, who routes it to the matching skill
+description: >-
+  Follow agents/rob.md in the current session and route the task to one
+  construction skill. Use when the user types /rob, or asks to review a bid
+  package, specification, drawing set, submittal, RFI, subcontractor proposal,
+  CPM schedule, pay application, quantity takeoff, or site hazard analysis.
 argument-hint: "[what you need, and where the documents are]"
 ---
 

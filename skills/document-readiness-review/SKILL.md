@@ -1,6 +1,11 @@
 ---
 name: document-readiness-review
-description: Review document preparation coverage, extraction quality, and revision metadata before construction analysis.
+description: >-
+  Review a supplied document manifest and extraction results for coverage, page
+  quality, and revision identity before any construction analysis. Use when asked
+  "are these documents ready", "check extraction coverage", "what can we review",
+  "which sheets failed OCR", or when given a document manifest, extraction report,
+  or revision inventory.
 ---
 
 # Document readiness review

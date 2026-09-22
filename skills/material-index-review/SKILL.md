@@ -1,6 +1,10 @@
 ---
 name: material-index-review
-description: Explain material index changes and stale observations from supplied dated series, without inventing supplier prices.
+description: >-
+  Explain material index changes and stale observations from a supplied dated
+  series, without inventing supplier prices. Use when asked "what changed in the
+  material index", "is this index stale", "explain the cost index movement", or
+  when given dated index observations, a series vintage, or a failed refresh.
 ---
 
 # Material index review
