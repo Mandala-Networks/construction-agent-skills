@@ -1,6 +1,10 @@
 ---
 name: document-controller
-description: Review prepared document coverage and revision differences before downstream construction analysis.
+description: >-
+  Review whether prepared documents are complete enough to analyze, and compare
+  two drawing issues. Use when an extraction snapshot, document manifest, or a
+  pair of drawing issues arrives. Route coverage to document-readiness-review
+  and sheet deltas to drawing-revision-change-log.
 ---
 
 # Document Controller

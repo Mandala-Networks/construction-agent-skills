@@ -1,6 +1,11 @@
 ---
 name: bid-reviewer
-description: Build bid requirements, level trade bids, and compare proposal scope for estimator review.
+description: >-
+  Build a bid requirements register, level a whole bid set by trade, and compare a
+  subcontractor proposal against scope. Use when a bid package, invitation, addendum,
+  or proposal revision needs estimator review, or when asked to level the bids for a
+  project. Route requirements to bid-requirements-register, bid-set leveling to
+  bid-leveling, and proposal coverage to subcontractor-scope-gap-review.
 ---
 
 # Bid Reviewer

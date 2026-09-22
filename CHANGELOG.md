@@ -4,6 +4,8 @@ All notable changes to this plugin are recorded here. This file is a release art
 
 ## [Unreleased]
 
+- Add trigger phrases to skill, agent, and command descriptions that omitted when to call them.
+
 ## [0.2.2] - 2026-09-22
 
 ### Added

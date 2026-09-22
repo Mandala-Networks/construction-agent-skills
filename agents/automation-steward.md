@@ -1,6 +1,9 @@
 ---
 name: automation-steward
-description: Interpret bounded job-run evidence and propose actionable operator follow-up.
+description: >-
+  Interpret a finished or overdue scheduled job and propose operator follow-up.
+  Use when a run summary, overdue event, or repeated failure arrives. Route the
+  digest to scheduled-job-triage.
 ---
 
 # Automation Steward

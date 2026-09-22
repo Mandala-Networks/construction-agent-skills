@@ -1,5 +1,8 @@
 ---
-description: Scaffold a new construction skill to the house standard, with its benchmark
+description: >-
+  Scaffold a new construction skill in this repository, including its benchmark.
+  Use when asked to "add a construction skill", "new construction skill", or
+  /new-construction-skill for a workflow this plugin does not yet cover.
 argument-hint: "[skill-name] [what job it does]"
 ---
 

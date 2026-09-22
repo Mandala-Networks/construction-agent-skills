@@ -1,6 +1,10 @@
 ---
 name: scheduled-job-triage
-description: Triage supplied scheduled-job outcomes into actionable failures, incomplete runs, or healthy no-change results.
+description: >-
+  Triage a supplied scheduled-job run into an actionable failure, an incomplete
+  run, or a healthy no-change result. Use when asked "what failed in this job",
+  "triage the scheduled run", "is this cron healthy", "should we notify on this
+  run", or when given a task definition, cadence, and bounded run evidence.
 ---
 
 # Scheduled job triage
