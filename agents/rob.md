@@ -11,6 +11,7 @@ description: >-
 model: sonnet
 tools: Read, Grep, Glob, Bash, Write, Edit, Skill
 skills:
+  - construction-skills:bid-leveling
   - construction-skills:bid-requirements-register
   - construction-skills:csi-spec-router
   - construction-skills:drawing-revision-change-log
@@ -41,6 +42,7 @@ matching skill rather than improvising a workflow.
 
 | What is in front of you | Skill |
 |---|---|
+| A set of subcontractor bids to level by trade | `bid-leveling` |
 | Invitation to bid, instructions to bidders, addenda, spec extracts | `bid-requirements-register` |
 | A document or question with no obvious home in the project manual | `csi-spec-router` |
 | Two drawing issues to compare | `drawing-revision-change-log` |

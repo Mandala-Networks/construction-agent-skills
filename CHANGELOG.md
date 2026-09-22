@@ -4,6 +4,20 @@ All notable changes to this plugin are recorded here. This file is a release art
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-09-22
+
+### Added
+
+- `bid-leveling`, a multi-bidder orchestrator: named plan baselines, responsibility-matrix
+  assignments, empty-trade classes, and one comparison sheet per trade. It composes with
+  `subcontractor-scope-gap-review`, `bid-requirements-register`, and
+  `drawing-revision-change-log`. Synthetic case `benchmarks/bid-leveling`.
+
+### Changed
+
+- `subcontractor-scope-gap-review` no longer triggers on "level the bids"; that phrase routes to
+  `bid-leveling`.
+
 ## [0.2.1] - 2026-09-19
 
 - Integrate the expanded construction skill set with portable exports and four operational roles.

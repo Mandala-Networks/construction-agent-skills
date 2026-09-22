@@ -1,4 +1,7 @@
 import { describe, expect, test } from "bun:test";
+import levelingBenchmark from "../benchmarks/bid-leveling/benchmark.json";
+import levelingCandidate from "../benchmarks/bid-leveling/cases/case-001/candidate.example.json";
+import levelingExpected from "../benchmarks/bid-leveling/cases/case-001/expected.json";
 import bidBenchmark from "../benchmarks/bid-requirements-register/benchmark.json";
 import bidCandidate from "../benchmarks/bid-requirements-register/cases/case-001/candidate.example.json";
 import bidExpected from "../benchmarks/bid-requirements-register/cases/case-001/expected.json";
@@ -40,6 +43,82 @@ describe("bid requirements benchmark", () => {
     expect(result.metrics.coverage).toBe(0);
     expect(result.metrics.hallucinations).toBe(1);
     expect(result.metrics.conflictRecall).toBe(0);
+  });
+});
+
+describe("bid leveling benchmark", () => {
+  test("the inspectable example passes every threshold", () => {
+    expect(
+      evaluateCandidate(levelingBenchmark, levelingExpected, levelingCandidate),
+    ).toMatchObject(perfect);
+  });
+
+  test("awarding the low number and reading an empty trade as coverage are hallucinations", () => {
+    const naive = {
+      ...levelingCandidate,
+      findings: [
+        ...levelingCandidate.findings,
+        {
+          id: "award-lowest-plumbing",
+          summary: "Harbor Pipe is the low bid",
+          sourceRefs: ["proposals.txt Harbor Pipe"],
+          needsHumanDecision: false,
+        },
+        {
+          id: "glazing-covered-by-silence",
+          summary: "No glazing proposal means glazing is not required",
+          sourceRefs: ["bid-set.txt glazing"],
+          needsHumanDecision: false,
+        },
+      ],
+    };
+    const result = evaluateCandidate(levelingBenchmark, levelingExpected, naive);
+    expect(result.metrics.hallucinations).toBe(2);
+    expect(result.passed).toBe(false);
+  });
+
+  test("reading silence on WH-2 as coverage loses the gap", () => {
+    const silentAsCovered = {
+      ...levelingCandidate,
+      findings: levelingCandidate.findings.filter(
+        (finding) => finding.id !== "harbor-pipe-wh2-not-addressed",
+      ),
+    };
+    const result = evaluateCandidate(
+      levelingBenchmark,
+      levelingExpected,
+      silentAsCovered,
+    );
+    expect(result.metrics.coverage).toBeLessThan(1);
+    expect(result.passed).toBe(false);
+  });
+
+  test("deciding the carpet clarify instead of escalating it fails the human gate", () => {
+    const decided = {
+      ...levelingCandidate,
+      findings: levelingCandidate.findings.map((finding) =>
+        finding.id === "carpet-owner-furnish-gc-install-clarify"
+          ? { ...finding, needsHumanDecision: false }
+          : finding,
+      ),
+    };
+    const result = evaluateCandidate(levelingBenchmark, levelingExpected, decided);
+    expect(result.metrics.humanDecisionCompliance).toBeLessThan(1);
+    expect(result.passed).toBe(false);
+  });
+
+  test("a clarify cited without the matrix loses traceability", () => {
+    const untraceable = {
+      ...levelingCandidate,
+      findings: levelingCandidate.findings.map((finding) =>
+        finding.id === "carpet-owner-furnish-gc-install-clarify"
+          ? { ...finding, sourceRefs: ["proposals.txt Soft Floor"] }
+          : finding,
+      ),
+    };
+    const result = evaluateCandidate(levelingBenchmark, levelingExpected, untraceable);
+    expect(result.metrics.traceability).toBeLessThan(1);
+    expect(result.passed).toBe(false);
   });
 });
 

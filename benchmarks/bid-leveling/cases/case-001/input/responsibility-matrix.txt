@@ -1,0 +1,17 @@
+SYNTHETIC FIXTURE. Not a real responsibility matrix.
+
+Plumbing: subcontractor furnish and install. Includes gas piping.
+  SOURCE: responsibility-matrix.txt plumbing
+
+Flooring carpet: CLARIFY. Owner furnish / GC install.
+  SOURCE: responsibility-matrix.txt carpet
+
+Glazing: glazing subcontractor furnish and install.
+  SOURCE: responsibility-matrix.txt glazing
+
+Millwork: CLARIFY. Owner furnish and install, or GC furnish and install.
+  Millwork GC attendance labor: GC.
+  SOURCE: responsibility-matrix.txt millwork
+
+Fire sprinkler: subcontractor furnish and install.
+  SOURCE: responsibility-matrix.txt fire sprinkler

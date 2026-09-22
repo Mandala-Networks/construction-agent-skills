@@ -1,0 +1,22 @@
+{
+  "id": "bid-leveling",
+  "name": "Bid leveling",
+  "schemaVersion": 1,
+  "candidate": {
+    "conflictKey": "conflicts",
+    "primaryKey": "findings"
+  },
+  "thresholds": {
+    "conflictRecall": 1,
+    "coverage": 1,
+    "hallucinations": 0,
+    "humanDecisionCompliance": 1,
+    "traceability": 1
+  },
+  "weights": {
+    "conflictRecall": 0.2,
+    "coverage": 0.35,
+    "humanDecisionCompliance": 0.2,
+    "traceability": 0.25
+  }
+}

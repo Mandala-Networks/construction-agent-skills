@@ -1,0 +1,31 @@
+SYNTHETIC FIXTURE. Not a real project, bid, or customer record.
+
+Bid set for North Wharf Bistro, grouped by trade.
+
+Superseded
+  Pier Pipe proposal, dated 2026-01-15, marked superseded.
+    Base amount stated in the file: 40000. Includes gas piping.
+  RFI-004 response, marked superseded: "Exterior pots quantity 40."
+  SOURCE: bid-set.txt superseded
+
+Plumbing
+  Harbor Pipe proposal
+  Canal Mechanical Plumbing proposal
+
+Flooring
+  Soft Floor Co proposal
+
+Glazing
+  (no files)
+  SOURCE: bid-set.txt glazing
+
+Millwork
+  (no files)
+  SOURCE: bid-set.txt millwork
+
+Fire Sprinkler
+  Scan Quote, image only, no text layer. The amount is not legible.
+  SOURCE: bid-set.txt fire sprinkler
+
+Responsibility Matrix
+  Responsibility Matrix, Owner Supplied list, GC Install Assist list.

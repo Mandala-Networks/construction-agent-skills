@@ -1,0 +1,465 @@
+{
+  "project": {
+    "name": "North Wharf Bistro"
+  },
+  "instructions": {
+    "packages": [
+      {
+        "label": "Permit Set",
+        "issueDate": "2026-03-02",
+        "revision": "unknown",
+        "sourceRef": "leveling-request.txt"
+      },
+      {
+        "label": "Revision Set",
+        "issueDate": "2026-06-18",
+        "revision": "unknown",
+        "sourceRef": "leveling-request.txt"
+      },
+      {
+        "label": "Interiors Set",
+        "issueDate": "2026-06-20",
+        "revision": "unknown",
+        "sourceRef": "leveling-request.txt"
+      }
+    ],
+    "baselineRule": "newest date/revision wins per sheet",
+    "overrides": [
+      {
+        "discipline": "interiors",
+        "over": "architectural",
+        "scope": "finishes",
+        "sourceRef": "leveling-request.txt finish rule"
+      }
+    ],
+    "namedExceptions": [],
+    "historyRequested": false,
+    "recommendationRequested": true
+  },
+  "sheetBaseline": [
+    {
+      "sheet": "P2.00",
+      "issues": [
+        {
+          "package": "Permit Set",
+          "revision": "0",
+          "date": "2026-03-02",
+          "sourceRef": "plans.txt P2.00 permit rev 0"
+        },
+        {
+          "package": "Revision Set",
+          "revision": "2",
+          "date": "2026-06-18",
+          "sourceRef": "plans.txt P2.00 revision rev 2"
+        }
+      ],
+      "governs": "Revision Set rev 2",
+      "rule": "newest date/revision wins per sheet"
+    },
+    {
+      "sheet": "FA-1.0",
+      "issues": [
+        {
+          "package": "Permit Set",
+          "revision": "0",
+          "date": "2026-03-02",
+          "sourceRef": "plans.txt FA-1.0 permit"
+        }
+      ],
+      "governs": "Permit Set rev 0",
+      "rule": "absent from the Revision Set index; the older issue still governs"
+    },
+    {
+      "sheet": "A-601 finish key F1",
+      "issues": [
+        {
+          "package": "Permit Set",
+          "revision": "0",
+          "date": "2026-03-02",
+          "sourceRef": "plans.txt A-601 F1"
+        },
+        {
+          "package": "Revision Set",
+          "revision": "0",
+          "date": "2026-06-18",
+          "sourceRef": "plans.txt A-601 revision carried forward"
+        },
+        {
+          "package": "Interiors Set",
+          "revision": "unknown",
+          "date": "2026-06-20",
+          "sourceRef": "plans.txt interiors 2505-500 F1"
+        }
+      ],
+      "governs": "Interiors Set schedule 2505-500",
+      "rule": "finish rule: interiors over architectural"
+    }
+  ],
+  "coverage": {
+    "tradesOpened": ["Fire Sprinkler", "Flooring", "Glazing", "Millwork", "Plumbing"],
+    "skipped": [
+      {
+        "item": "Pier Pipe proposal",
+        "reason": "marked superseded; history not requested"
+      },
+      {
+        "item": "RFI-004 response",
+        "reason": "marked superseded; not a named exception"
+      }
+    ],
+    "unreadable": ["Fire Sprinkler / Scan Quote amount"],
+    "missingDocuments": ["specification book"]
+  },
+  "tradeSheets": [
+    {
+      "trade": "Fire Sprinkler",
+      "assignment": {
+        "party": "subcontractor furnish and install",
+        "clarify": false,
+        "sourceRef": "responsibility-matrix.txt fire sprinkler"
+      },
+      "coverageClass": "amount unknown",
+      "carriedBy": null,
+      "bids": [
+        {
+          "bidder": "unknown",
+          "file": "Scan Quote",
+          "filedUnder": "Fire Sprinkler",
+          "date": "unknown",
+          "revision": "unknown",
+          "sourceRef": "bid-set.txt fire sprinkler",
+          "baseBid": "unknown",
+          "alternates": [],
+          "unitPrices": [],
+          "allowances": [],
+          "inclusions": [],
+          "exclusions": [],
+          "qualificationsVerbatim": [],
+          "programsCovered": []
+        }
+      ],
+      "planCrossCheck": [],
+      "recommendation": {
+        "summary": "No recommendation until the amount and scope are read from the proposal.",
+        "reasoning": "The only file is an image with no legible amount.",
+        "sourceRefs": ["bid-set.txt fire sprinkler"],
+        "needsHumanDecision": true
+      }
+    },
+    {
+      "trade": "Flooring",
+      "assignment": {
+        "party": "owner furnish, GC install",
+        "clarify": true,
+        "sourceRef": "responsibility-matrix.txt carpet"
+      },
+      "coverageClass": null,
+      "carriedBy": null,
+      "bids": [
+        {
+          "bidder": "Soft Floor Co",
+          "file": "Soft Floor Co proposal",
+          "filedUnder": "Flooring",
+          "date": "2026-06-19",
+          "revision": "unknown",
+          "sourceRef": "proposals.txt Soft Floor",
+          "baseBid": "27000",
+          "alternates": [],
+          "unitPrices": [],
+          "allowances": [],
+          "inclusions": ["carpet, furnish and install"],
+          "exclusions": [],
+          "qualificationsVerbatim": ["Carpet included, furnish and install."],
+          "programsCovered": []
+        }
+      ],
+      "planCrossCheck": [
+        {
+          "requirement": "Finish F1 carpet tile CPT-1 in dining",
+          "governingRef": "plans.txt interiors 2505-500 F1",
+          "byBidder": [
+            {
+              "bidder": "Soft Floor Co",
+              "classification": "included",
+              "proposalRef": "proposals.txt Soft Floor",
+              "qualificationVerbatim": null
+            }
+          ]
+        }
+      ],
+      "recommendation": {
+        "summary": "Hold the flooring recommendation until the carpet clarify is decided.",
+        "reasoning": "The matrix marks carpet as owner furnish / GC install and a clarify. The proposal's furnish-and-install sentence does not decide the split.",
+        "sourceRefs": ["proposals.txt Soft Floor", "responsibility-matrix.txt carpet"],
+        "needsHumanDecision": true
+      }
+    },
+    {
+      "trade": "Glazing",
+      "assignment": {
+        "party": "subcontractor furnish and install",
+        "clarify": false,
+        "sourceRef": "responsibility-matrix.txt glazing"
+      },
+      "coverageClass": "must solicit",
+      "carriedBy": null,
+      "bids": [],
+      "planCrossCheck": [],
+      "recommendation": {
+        "summary": "Solicit glazing bids.",
+        "reasoning": "The matrix assigns glazing to a subcontractor and the trade has no current proposal.",
+        "sourceRefs": ["bid-set.txt glazing", "responsibility-matrix.txt glazing"],
+        "needsHumanDecision": true
+      }
+    },
+    {
+      "trade": "Millwork",
+      "assignment": {
+        "party": "unknown",
+        "clarify": true,
+        "sourceRef": "responsibility-matrix.txt millwork"
+      },
+      "coverageClass": "expected empty / hold",
+      "carriedBy": null,
+      "bids": [],
+      "planCrossCheck": [],
+      "recommendation": {
+        "summary": "Hold millwork until the owner-or-GC clarify is decided.",
+        "reasoning": "An empty trade under an open clarify is expected. GC attendance labor stays separate from the supply path.",
+        "sourceRefs": ["bid-set.txt millwork", "responsibility-matrix.txt millwork"],
+        "needsHumanDecision": true
+      }
+    },
+    {
+      "trade": "Plumbing",
+      "assignment": {
+        "party": "subcontractor furnish and install",
+        "clarify": false,
+        "sourceRef": "responsibility-matrix.txt plumbing"
+      },
+      "coverageClass": null,
+      "carriedBy": null,
+      "bids": [
+        {
+          "bidder": "Harbor Pipe",
+          "file": "Harbor Pipe proposal",
+          "filedUnder": "Plumbing",
+          "date": "2026-06-20",
+          "revision": "unknown",
+          "sourceRef": "proposals.txt Harbor Pipe",
+          "baseBid": "48000",
+          "alternates": [],
+          "unitPrices": [],
+          "allowances": [],
+          "inclusions": ["domestic water", "fixtures shown on the plumbing sheets"],
+          "exclusions": ["gas piping"],
+          "qualificationsVerbatim": [],
+          "programsCovered": []
+        },
+        {
+          "bidder": "Canal Mechanical Plumbing",
+          "file": "Canal Mechanical Plumbing proposal",
+          "filedUnder": "Plumbing",
+          "date": "2026-06-21",
+          "revision": "unknown",
+          "sourceRef": "proposals.txt Canal Mechanical Plumbing",
+          "baseBid": "51000",
+          "alternates": [],
+          "unitPrices": [],
+          "allowances": [],
+          "inclusions": [
+            "domestic water",
+            "fixtures",
+            "gas piping",
+            "water heater WH-2"
+          ],
+          "exclusions": ["fire sprinkler"],
+          "qualificationsVerbatim": [],
+          "programsCovered": []
+        }
+      ],
+      "planCrossCheck": [
+        {
+          "requirement": "Gas piping by the plumbing contractor",
+          "governingRef": "plans.txt P2.00 revision rev 2",
+          "byBidder": [
+            {
+              "bidder": "Harbor Pipe",
+              "classification": "excluded",
+              "proposalRef": "proposals.txt Harbor Pipe",
+              "qualificationVerbatim": null
+            },
+            {
+              "bidder": "Canal Mechanical Plumbing",
+              "classification": "included",
+              "proposalRef": "proposals.txt Canal Mechanical Plumbing",
+              "qualificationVerbatim": null
+            }
+          ]
+        },
+        {
+          "requirement": "Water heater WH-2",
+          "governingRef": "plans.txt P2.00 revision rev 2",
+          "byBidder": [
+            {
+              "bidder": "Harbor Pipe",
+              "classification": "not addressed",
+              "proposalRef": "proposals.txt Harbor Pipe",
+              "qualificationVerbatim": null
+            },
+            {
+              "bidder": "Canal Mechanical Plumbing",
+              "classification": "included",
+              "proposalRef": "proposals.txt Canal Mechanical Plumbing",
+              "qualificationVerbatim": null
+            }
+          ]
+        }
+      ],
+      "recommendation": {
+        "summary": "Canal Mechanical Plumbing is the closer scope fit, for the buyout owner to decide.",
+        "reasoning": "Governing P2.00 rev 2 requires gas piping and WH-2. Canal includes both. Harbor Pipe's lower base excludes gas piping and is silent on WH-2. This is not an award.",
+        "sourceRefs": [
+          "proposals.txt Harbor Pipe",
+          "proposals.txt Canal Mechanical Plumbing",
+          "plans.txt P2.00 revision rev 2"
+        ],
+        "needsHumanDecision": true
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "sheet-p200-newest-wins",
+      "kind": "baseline",
+      "trade": "Plumbing",
+      "summary": "P2.00 rev 2 in the Revision Set governs over Permit Set rev 0 under the newest-wins rule. Rev 2 adds WH-2 and keeps gas piping with the plumbing contractor.",
+      "sourceRefs": ["plans.txt P2.00 permit rev 0", "plans.txt P2.00 revision rev 2"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "fire-alarm-permit-set-governs",
+      "kind": "baseline",
+      "trade": "Fire Alarm",
+      "summary": "The Revision Set has no fire alarm sheets, so FA-1.0 in the Permit Set still governs. Absence is not deletion.",
+      "sourceRefs": ["plans.txt FA-1.0 permit", "plans.txt revision index"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "finishes-id-over-arch",
+      "kind": "baseline",
+      "trade": "Flooring",
+      "summary": "Arch says sealed concrete / ID says carpet tile CPT-1 / using ID, under the stated finish rule.",
+      "sourceRefs": [
+        "plans.txt A-601 F1",
+        "plans.txt interiors 2505-500 F1",
+        "leveling-request.txt finish rule"
+      ],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "harbor-pipe-gas-piping-excluded",
+      "kind": "gap",
+      "trade": "Plumbing",
+      "summary": "Harbor Pipe excludes gas piping. The matrix puts gas piping in the plumbing subcontract, so no other trade carries it.",
+      "sourceRefs": ["proposals.txt Harbor Pipe", "responsibility-matrix.txt plumbing"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "harbor-pipe-wh2-not-addressed",
+      "kind": "gap",
+      "trade": "Plumbing",
+      "summary": "Harbor Pipe is silent on water heater WH-2, which P2.00 rev 2 adds. Not addressed, not included.",
+      "sourceRefs": ["proposals.txt Harbor Pipe", "plans.txt P2.00 revision rev 2"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "plumbing-recommendation",
+      "kind": "recommendation",
+      "trade": "Plumbing",
+      "summary": "Canal Mechanical Plumbing is the closer scope fit to governing P2.00 rev 2. Harbor Pipe's lower base excludes gas piping and is silent on WH-2. Not an award.",
+      "sourceRefs": [
+        "proposals.txt Harbor Pipe",
+        "proposals.txt Canal Mechanical Plumbing",
+        "plans.txt P2.00 revision rev 2"
+      ],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "glazing-must-solicit",
+      "kind": "gap",
+      "trade": "Glazing",
+      "summary": "No current glazing proposal, and the matrix assigns glazing to a subcontractor. Must solicit.",
+      "sourceRefs": ["bid-set.txt glazing", "responsibility-matrix.txt glazing"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "millwork-hold-clarify",
+      "kind": "clarify",
+      "trade": "Millwork",
+      "summary": "Millwork has no proposal under an open owner-or-GC clarify. Expected empty; hold the buyout.",
+      "sourceRefs": ["bid-set.txt millwork", "responsibility-matrix.txt millwork"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "carpet-owner-furnish-gc-install-clarify",
+      "kind": "clarify",
+      "trade": "Flooring",
+      "summary": "The matrix marks carpet as owner furnish / GC install and a clarify. Soft Floor's furnish-and-install sentence does not decide the split.",
+      "sourceRefs": ["proposals.txt Soft Floor", "responsibility-matrix.txt carpet"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "sprinkler-amount-unknown",
+      "kind": "unknown-amount",
+      "trade": "Fire Sprinkler",
+      "summary": "Scan Quote is image only with no legible amount. Base bid is unknown.",
+      "sourceRefs": ["bid-set.txt fire sprinkler"],
+      "needsHumanDecision": true
+    },
+    {
+      "id": "skipped-superseded-items",
+      "kind": "coverage",
+      "trade": "all",
+      "summary": "Skipped the superseded Pier Pipe proposal and the superseded RFI-004 exterior pots quantity. History was not requested and no exterior exception was named.",
+      "sourceRefs": ["bid-set.txt superseded", "leveling-request.txt superseded bids"],
+      "needsHumanDecision": false
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "p200-revision-conflict",
+      "summary": "P2.00 rev 0 has no WH-2. P2.00 rev 2 adds WH-2. Rev 2 governs under the stated rule.",
+      "sourceRefs": ["plans.txt P2.00 permit rev 0", "plans.txt P2.00 revision rev 2"],
+      "needsHumanDecision": false
+    },
+    {
+      "id": "finish-f1-arch-vs-id",
+      "summary": "Arch says sealed concrete / ID says carpet tile CPT-1 / using ID.",
+      "sourceRefs": ["plans.txt A-601 F1", "plans.txt interiors 2505-500 F1"],
+      "needsHumanDecision": false
+    }
+  ],
+  "unresolvedQuestions": [
+    {
+      "question": "Who furnishes carpet tile CPT-1, and who installs it?",
+      "owner": "project manager"
+    },
+    {
+      "question": "Is millwork owner furnish and install, or GC?",
+      "owner": "project manager"
+    },
+    {
+      "question": "Who solicits glazing?",
+      "owner": "estimator"
+    },
+    {
+      "question": "What is the fire sprinkler amount on the scan?",
+      "owner": "estimator"
+    },
+    {
+      "question": "Does the plumbing buyout follow the closer scope fit?",
+      "owner": "project manager"
+    }
+  ]
+}

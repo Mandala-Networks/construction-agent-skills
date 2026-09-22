@@ -36,6 +36,7 @@ The package also includes bid-reviewer, document-controller, material-analyst, a
 
 | Skill | Job to be done | Status |
 | --- | --- | --- |
+| **bid-leveling** | One comparison sheet per trade from a whole bid set, named plan baselines, and the responsibility matrix | Benchmarked |
 | **bid-requirements-register** | Sourced bid checklist from invitations, addenda, and spec extracts | Benchmarked |
 | **schedule-logic-review** | DCMA 14-point assessment of a CPM schedule, defect by activity | Benchmarked |
 | **pay-application-review** | G702/G703 arithmetic, retainage, stored materials, change order tie-out | Benchmarked |

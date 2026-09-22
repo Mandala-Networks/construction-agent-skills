@@ -17,6 +17,10 @@ before a GitHub installation can retrieve them.
 | OpenCode 1.18.30 | `.opencode/skills` and `.opencode/agents` export | Native discovery of 14 skills and 5 subagents | Model behavior |
 | OpenWork 0.18.48 | Claude-compatible plugin import; OpenCode-layout workspace export | Previous six-skill bundle visible in desktop skill picker after opening exported local workspace | Desktop subagent behavior, manifest import, managed Cloud publication |
 
+The table counts are from 2026-09-19. On 2026-09-22, after `bid-leveling` was added,
+`bun run smoke:platforms` discovered 15 skills and 5 roles in Claude Code 2.1.280 and Grok
+Build 1.0.40. OpenCode was not re-run.
+
 A manifest check is not an installation test; a discovery check is not a domain
 evaluation. The table deliberately separates them. No provider or MCP connection
 is required to install these instructions. Host credentials and tool permissions

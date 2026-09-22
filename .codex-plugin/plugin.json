@@ -1,7 +1,7 @@
 {
   "name": "construction-skills",
   "displayName": "Construction Skills",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Benchmark-tested construction workflow skills, and Rob, a construction operations agent, for Claude Code, Codex, and Grok Build",
   "author": {
     "name": "Mandala Networks",

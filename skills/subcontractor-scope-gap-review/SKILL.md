@@ -4,8 +4,8 @@ description: >-
   Crosswalk a subcontractor proposal against the bid scope and classify every requirement as
   included, excluded, qualified, unclear, or not addressed, with both sides cited. Use when
   asked to "review this sub's bid", "compare these proposals", "what is this sub missing",
-  "level the bids", "check the scope letter", or when given a subcontractor quotation, scope
-  letter, or proposal against a scope of work.
+  "check the scope letter", or when given a subcontractor quotation, scope letter, or proposal
+  against a scope of work. To level a whole bid set by trade, use bid-leveling.
 metadata:
   author: mandala-networks
   version: "0.2.0"
