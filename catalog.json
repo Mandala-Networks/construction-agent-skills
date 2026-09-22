@@ -4,6 +4,11 @@
   "agent": "rob",
   "skills": [
     {
+      "id": "bid-leveling",
+      "status": "benchmark-ready",
+      "benchmark": "benchmarks/bid-leveling"
+    },
+    {
       "id": "bid-requirements-register",
       "status": "benchmark-ready",
       "benchmark": "benchmarks/bid-requirements-register"

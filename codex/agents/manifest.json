@@ -12,10 +12,10 @@
     },
     {
       "agentName": "bid_reviewer",
-      "description": "Build bid requirements and compare proposal scope for estimator review.",
+      "description": "Build bid requirements, level trade bids, and compare proposal scope for estimator review.",
       "generatedFile": "bid-reviewer.toml",
-      "generatedHash": "sha256:54c48783379b3c48e4eecda6f517f80c798828732856393f5c4fa52ad32d2ae7",
-      "sourceHash": "sha256:091055ba58b7e2ab84cf9ecd0e9d9f884d62d969f3b8e8029dfee367c8ca7376",
+      "generatedHash": "sha256:211fdea256b29ca9815dff73c9ede807e12ec11095672851ebedd80758315192",
+      "sourceHash": "sha256:7364ccb5e62adb34202908fc83eb3f3050b0b5ba475e59d94036712fdb859b1b",
       "sourceName": "bid-reviewer",
       "sourcePath": "agents/bid-reviewer.md",
       "sourceVersion": "unversioned"
@@ -44,8 +44,8 @@
       "agentName": "rob",
       "description": "Construction project delivery agent. Use when the work involves bid packages, specifications, drawings, submittals, RFIs, subcontractor proposals, CPM schedules, pay applications, quantity takeoffs, or site hazard analysis. Rob reads the documents, routes to the matching construction skill, and returns sourced findings with the decisions a human still owns. Not for general software work, and not for signing, submitting, pricing, or interpreting a contract.",
       "generatedFile": "rob.toml",
-      "generatedHash": "sha256:8458768fd442593bd64d2ff2fcd3bb6b5f0175a88e4f4ee8f9c8a2dc6c828ee8",
-      "sourceHash": "sha256:0648ce04ed9058d56d484cb7a291a7a919815405d343a733881a8ca4320790eb",
+      "generatedHash": "sha256:9038aa61227b15806d17592f05fcc5e990140d76e92aa380b5f2bcf4d3ee29ad",
+      "sourceHash": "sha256:7791c41672b0821f5427c3b32ac2b95baf45d137fbc624042ec72dc7d877fa98",
       "sourceName": "rob",
       "sourcePath": "agents/rob.md",
       "sourceVersion": "0.2.0"

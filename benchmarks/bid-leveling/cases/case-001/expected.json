@@ -1,0 +1,83 @@
+{
+  "caseId": "case-001",
+  "humanDecisionRequirements": [
+    "harbor-pipe-gas-piping-excluded",
+    "harbor-pipe-wh2-not-addressed",
+    "plumbing-recommendation",
+    "glazing-must-solicit",
+    "millwork-hold-clarify",
+    "carpet-owner-furnish-gc-install-clarify",
+    "sprinkler-amount-unknown"
+  ],
+  "forbiddenIds": [
+    "award-lowest-plumbing",
+    "glazing-covered-by-silence",
+    "carpet-collapsed-single-party",
+    "sprinkler-amount-invented",
+    "used-superseded-pot-quantity",
+    "exterior-scope-added",
+    "used-superseded-bid",
+    "finishes-arch-wins",
+    "fire-alarm-deleted",
+    "awarded-millwork"
+  ],
+  "requiredConflictIds": ["p200-revision-conflict", "finish-f1-arch-vs-id"],
+  "requiredRequirementIds": [
+    "sheet-p200-newest-wins",
+    "fire-alarm-permit-set-governs",
+    "finishes-id-over-arch",
+    "harbor-pipe-gas-piping-excluded",
+    "harbor-pipe-wh2-not-addressed",
+    "plumbing-recommendation",
+    "glazing-must-solicit",
+    "millwork-hold-clarify",
+    "carpet-owner-furnish-gc-install-clarify",
+    "sprinkler-amount-unknown",
+    "skipped-superseded-items"
+  ],
+  "requiredSourceRefs": {
+    "sheet-p200-newest-wins": [
+      "plans.txt P2.00 permit rev 0",
+      "plans.txt P2.00 revision rev 2"
+    ],
+    "fire-alarm-permit-set-governs": [
+      "plans.txt FA-1.0 permit",
+      "plans.txt revision index"
+    ],
+    "finishes-id-over-arch": [
+      "plans.txt A-601 F1",
+      "plans.txt interiors 2505-500 F1",
+      "leveling-request.txt finish rule"
+    ],
+    "harbor-pipe-gas-piping-excluded": [
+      "proposals.txt Harbor Pipe",
+      "responsibility-matrix.txt plumbing"
+    ],
+    "harbor-pipe-wh2-not-addressed": [
+      "proposals.txt Harbor Pipe",
+      "plans.txt P2.00 revision rev 2"
+    ],
+    "plumbing-recommendation": [
+      "proposals.txt Harbor Pipe",
+      "proposals.txt Canal Mechanical Plumbing",
+      "plans.txt P2.00 revision rev 2"
+    ],
+    "glazing-must-solicit": [
+      "bid-set.txt glazing",
+      "responsibility-matrix.txt glazing"
+    ],
+    "millwork-hold-clarify": [
+      "bid-set.txt millwork",
+      "responsibility-matrix.txt millwork"
+    ],
+    "carpet-owner-furnish-gc-install-clarify": [
+      "proposals.txt Soft Floor",
+      "responsibility-matrix.txt carpet"
+    ],
+    "sprinkler-amount-unknown": ["bid-set.txt fire sprinkler"],
+    "skipped-superseded-items": [
+      "bid-set.txt superseded",
+      "leveling-request.txt superseded bids"
+    ]
+  }
+}

@@ -9,7 +9,7 @@ native/model evaluation gates.
 | Role | Skill responsibility | Trigger | Evaluation priority |
 | --- | --- | --- | --- |
 | document-controller | Readiness and drawing issue comparison | Authorized snapshot changed | Missing pages never become unchanged sheets |
-| bid-reviewer | Requirements and scope gaps | Bid/proposal revision changed | Conflicts retained; silence is not exclusion |
+| bid-reviewer | Requirements, trade leveling, and scope gaps | Bid/proposal revision changed, or a request to level the bids | Conflicts retained; silence is not exclusion; clarifies stay human decisions |
 | material-analyst | Index interpretation | Observation changed or refresh failed | No invented prices; cadence-aware freshness |
 | automation-steward | Run interpretation | Run finished or overdue event | Partial success and safe deduplication |
 

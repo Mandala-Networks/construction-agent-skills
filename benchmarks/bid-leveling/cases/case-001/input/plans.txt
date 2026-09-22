@@ -1,0 +1,21 @@
+SYNTHETIC FIXTURE. Not a real project or drawing set.
+
+Permit Set, issued 2026-03-02
+  P2.00 rev 0: gas piping by the plumbing contractor. No WH-2.
+    SOURCE: plans.txt P2.00 permit rev 0
+  FA-1.0 rev 0: fire alarm devices in dining and kitchen.
+    SOURCE: plans.txt FA-1.0 permit
+  A-601 rev 0, finish key F1: sealed concrete in dining.
+    SOURCE: plans.txt A-601 F1
+
+Revision Set, issued 2026-06-18
+  Sheet index: architectural, plumbing, mechanical.
+    SOURCE: plans.txt revision index
+  P2.00 rev 2: gas piping by the plumbing contractor. Adds water heater WH-2.
+    SOURCE: plans.txt P2.00 revision rev 2
+  A-601 rev 0, carried forward unchanged: finish key F1 sealed concrete in dining.
+    SOURCE: plans.txt A-601 revision carried forward
+
+Interiors Set, issued 2026-06-20
+  Schedule 2505-500, finish key F1: carpet tile CPT-1 in dining.
+    SOURCE: plans.txt interiors 2505-500 F1

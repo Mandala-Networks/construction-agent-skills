@@ -1,0 +1,25 @@
+SYNTHETIC FIXTURE. Not a real project, bid, or customer record.
+
+Harbor Pipe proposal
+  Bidder: Harbor Pipe
+  Date: 2026-06-20
+  Base bid: 48000
+  Includes: domestic water and fixtures shown on the plumbing sheets.
+  Excludes: gas piping.
+  SOURCE: proposals.txt Harbor Pipe
+
+Canal Mechanical Plumbing proposal
+  Bidder: Canal Mechanical Plumbing
+  Date: 2026-06-21
+  Base bid: 51000
+  Includes: domestic water, fixtures, and gas piping.
+  Includes: water heater WH-2.
+  Excludes: fire sprinkler.
+  SOURCE: proposals.txt Canal Mechanical Plumbing
+
+Soft Floor Co proposal
+  Bidder: Soft Floor Co
+  Date: 2026-06-19
+  Base bid: 27000
+  "Carpet included, furnish and install."
+  SOURCE: proposals.txt Soft Floor

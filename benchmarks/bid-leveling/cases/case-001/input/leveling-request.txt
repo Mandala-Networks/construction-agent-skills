@@ -1,0 +1,16 @@
+SYNTHETIC FIXTURE. Not a real project, bid, or customer record.
+
+PROJECT: North Wharf Bistro
+REQUEST: Level the incoming bids for North Wharf Bistro. Give a recommendation on each
+trade sheet.
+
+Plan packages named for this leveling:
+- Permit Set dated 2026-03-02.
+- Revision Set dated 2026-06-18.
+- Interiors Set dated 2026-06-20.
+Rule: newest date/revision wins per sheet.
+Finish rule: the Interiors Set wins over architectural on finishes.
+  SOURCE: leveling-request.txt finish rule
+
+Superseded bids: history not requested.
+  SOURCE: leveling-request.txt superseded bids
