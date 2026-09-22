@@ -200,6 +200,13 @@ const bumpPatch = async (): Promise<string> => {
   const pkg = await readJson<Record<string, unknown>>("package.json");
   pkg.version = next;
   await Bun.write(join(ROOT, "package.json"), `${JSON.stringify(pkg, null, 2)}\n`);
+  const format = Bun.spawnSync(
+    ["bun", "x", "biome", "format", "--write", ...HOST_MANIFESTS, ...MARKETPLACES],
+    { cwd: ROOT },
+  );
+  if (format.exitCode !== 0) {
+    throw new Error(`biome format failed: ${format.stderr.toString()}`);
+  }
   return next;
 };
 

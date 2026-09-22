@@ -4,7 +4,12 @@ All notable changes to this plugin are recorded here. This file is a release art
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-09-22
+
 - Add trigger phrases to skill, agent, and command descriptions that omitted when to call them.
+- Document the native-plugins-first consumer integration direction in
+  `docs/consumer-integration.md`. It is a plan; nothing in it is implemented yet.
+- `bun run plugin:bump` formats the manifests it writes, so a release no longer fails lint.
 
 ## [0.2.2] - 2026-09-22
 
